@@ -1,0 +1,1385 @@
+-- <<Secondary Vars>> --
+
+-- <<PLAYER>> --
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+
+-- <<EXPLOIT TOGGLES>> --
+local toggleIJ = false
+local toggleACC = false
+local defaultWalkSpeed = char.Humanoid.WalkSpeed
+local defaultJumpPower = char.Humanoid.JumpPower
+local IYMouse = plr:GetMouse()
+local flingtbl = {}
+local flinging = false
+local GESP = false
+local GTP = false
+local NFall = false
+local ptrail = false
+local bhop = false
+local nclip = false
+local UESP = false
+local allMM2ESP = false
+local MurdMM2ESP = false
+local sheriffMM2ESP = false
+local ALLESP = false
+local ToolEsp = false
+local gspoof = false
+local wason = false
+local antiAlt = false
+local CrashSpeed = 2
+local antiDeath = false
+
+-- <<SERVICES>> --
+
+local rs = game:GetService("RunService")
+
+--<<Fuctions>>
+function findPlayer(str)
+	print("executed")
+	for _,v in pairs(game.Players:GetPlayers()) do
+		print("found")
+		print(v.Name)
+		local splitTable = string.split(v.Name,str)
+
+		if splitTable[2] ~= nil then
+			print("Returned")
+			return v
+		end
+	end
+end
+
+FLYING = false
+QEfly = true
+iyflyspeed = 1
+vehicleflyspeed = 1
+function sFLY(vfly)
+	repeat wait() until plr and plr.Character and char.HumanoidRootPart and plr.Character:FindFirstChildOfClass("Humanoid")
+	repeat wait() until IYMouse
+	if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
+
+	local T = char.HumanoidRootPart
+	local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+	local lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+	local SPEED = 0
+
+	local function FLY()
+		FLYING = true
+		local BG = Instance.new('BodyGyro')
+		local BV = Instance.new('BodyVelocity')
+		BG.P = 9e4
+		BG.Parent = T
+		BV.Parent = T
+		BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		BG.cframe = T.CFrame
+		BV.velocity = Vector3.new(0, 0, 0)
+		BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+		task.spawn(function()
+			repeat wait()
+				if not vfly and plr.Character:FindFirstChildOfClass('Humanoid') then
+					plr.Character:FindFirstChildOfClass('Humanoid').PlatformStand = true
+				end
+				if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0 then
+					SPEED = 50
+				elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0) and SPEED ~= 0 then
+					SPEED = 0
+				end
+				if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 or (CONTROL.Q + CONTROL.E) ~= 0 then
+					BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+					lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+				elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and (CONTROL.Q + CONTROL.E) == 0 and SPEED ~= 0 then
+					BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+				else
+					BV.velocity = Vector3.new(0, 0, 0)
+				end
+				BG.cframe = workspace.CurrentCamera.CoordinateFrame
+			until not FLYING
+			CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+			lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+			SPEED = 0
+			BG:Destroy()
+			BV:Destroy()
+			if plr.Character:FindFirstChildOfClass('Humanoid') then
+				plr.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
+			end
+		end)
+	end
+	flyKeyDown = IYMouse.KeyDown:Connect(function(KEY)
+		if KEY:lower() == 'w' then
+			CONTROL.F = (vfly and vehicleflyspeed or iyflyspeed)
+		elseif KEY:lower() == 's' then
+			CONTROL.B = - (vfly and vehicleflyspeed or iyflyspeed)
+		elseif KEY:lower() == 'a' then
+			CONTROL.L = - (vfly and vehicleflyspeed or iyflyspeed)
+		elseif KEY:lower() == 'd' then 
+			CONTROL.R = (vfly and vehicleflyspeed or iyflyspeed)
+		elseif QEfly and KEY:lower() == 'e' then
+			CONTROL.Q = (vfly and vehicleflyspeed or iyflyspeed)*2
+		elseif QEfly and KEY:lower() == 'q' then
+			CONTROL.E = -(vfly and vehicleflyspeed or iyflyspeed)*2
+		end
+		pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Track end)
+	end)
+	flyKeyUp = IYMouse.KeyUp:Connect(function(KEY)
+		if KEY:lower() == 'w' then
+			CONTROL.F = 0
+		elseif KEY:lower() == 's' then
+			CONTROL.B = 0
+		elseif KEY:lower() == 'a' then
+			CONTROL.L = 0
+		elseif KEY:lower() == 'd' then
+			CONTROL.R = 0
+		elseif KEY:lower() == 'e' then
+			CONTROL.Q = 0
+		elseif KEY:lower() == 'q' then
+			CONTROL.E = 0
+		end
+	end)
+	FLY()
+end
+
+function NOFLY()
+	FLYING = false
+	if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
+	if plr.Character:FindFirstChildOfClass('Humanoid') then
+		plr.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
+	end
+	pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Custom end)
+end
+
+function beginFling()
+	local rootpart = char.HumanoidRootPart
+	if not rootpart then game.StarterGui:SetCore("SendNotification",{Title = "Error",Text = "Couldn't find your rootpart!",Duration = 6}) end
+	flingtbl.OldVelocity = rootpart.Velocity
+	local bv = Instance.new("BodyAngularVelocity")
+	flingtbl.bv = bv
+	bv.MaxTorque = Vector3.new(1, 1, 1) * math.huge
+	bv.P = math.huge
+	bv.AngularVelocity = Vector3.new(0, 9e5, 0)
+	bv.Parent = rootpart
+	for i, v in pairs(char:GetChildren()) do
+		if v:IsA("BasePart") then
+			v.CanCollide = false
+			v.Massless = true
+			v.Velocity = Vector3.new(0, 0, 0)
+		end
+	end
+	flingtbl.Noclipping2 = rs.Stepped:Connect(function()
+		for i, v in pairs(char:GetChildren()) do
+			if v:IsA("BasePart") then
+				v.CanCollide = false
+			end
+		end
+	end)
+	flinging = true
+	sFLY()
+end
+
+-- <<Main CODE>> --
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("GG Hub", "Synapse")
+wait()
+local PlayerTab = Window:NewTab("Main - Player")
+wait()
+local Section = PlayerTab:NewSection("Player Movement")
+wait()
+Section:NewSlider("Walk Speed", "Change how fast you walk", 250, defaultWalkSpeed, function(amount)
+	char.Humanoid.WalkSpeed = amount
+end)
+wait()
+Section:NewSlider("JumpPower", "Change how far you jump", 250, defaultJumpPower, function(amount)
+	char.Humanoid.UseJumpPower = true
+	char.Humanoid.JumpPower = amount
+end)
+
+Section:NewToggle("Fly", "become bird", function(state)
+	if state then
+		sFLY()
+	else
+		NOFLY()
+	end
+end)
+wait()
+Section:NewToggle("Infinite Jump", "Jump in air", function(state)
+	if state then
+		toggleIJ = true
+	else
+		toggleIJ = false
+	end
+end)
+wait()
+Section:NewToggle("Ligit ws", "Higher walkspeed, it looks more ligit", function(state)
+	if state then
+		char.Humanoid.WalkSpeed = defaultWalkSpeed + 3
+	else
+		char.Humanoid.WalkSpeed = defaultWalkSpeed
+	end
+end)
+
+Section:NewToggle("Noclip", "walk through walls", function(state)
+	if state then
+		nclip = true
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "noclip on",
+			Text = "You can walk through walls!",
+			Duration = 6
+		})
+	else
+		nclip = false
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "noclip off",
+			Text = "You can NOT walk through walls!",
+			Duration = 6
+		})
+	end
+end)
+
+Section:NewToggle("Part Trail", "Make a trial of parts so you can fly", function(state)
+	if state then
+		ptrail = true
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "Part trial",
+			Text = "Part trial ON.",
+			Duration = 6
+		})
+	else
+		ptrail = false
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "Part trial",
+			Text = "Part trial OFF.",
+			Duration = 6
+		})
+	end
+end)
+
+Section:NewToggle("No Fall", "take no fall damage", function(state)
+	if state then
+		NFall = true
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "fall damage off",
+			Text = "You will not take fall damage!",
+			Duration = 6
+		})
+	else
+		NFall = false
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "fall damage ON",
+			Text = "You will take fall damage!",
+			Duration = 6
+		})
+	end
+end)
+
+Section:NewToggle("bhop", "jump on land automatically", function(state)
+	if state then
+		bhop = true
+		char.Humanoid.StateChanged:Connect(function(old,new)
+			if new == Enum.HumanoidStateType.Landed and bhop == true then
+				wait(0.01)
+				char.HumanoidRootPart.Velocity = Vector3.new(10,40,10)
+			end
+			if new ~= Enum.HumanoidStateType.Freefall and bhop == true then
+				wait(0.01)
+				char.HumanoidRootPart.Velocity = Vector3.new(5,40,5)
+			end
+		end)
+		char.HumanoidRootPart.Velocity = Vector3.new(0,50,0)
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "bhop on",
+			Text = "You will jump when you land!",
+			Duration = 6
+		})
+	else
+		bhop = false
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "bhop off",
+			Text = "You will NOT jump when you land!",
+			Duration = 6
+		})
+	end
+end)
+
+Section:NewTextBox("Tp to a player", "tp to a player (shorten name)", function(txt)
+	local target = findPlayer(txt)
+
+	if target ~= nil then
+		local s,e = pcall(function()
+			plr.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame
+		end)
+		if e then
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "error",
+				Text = "Player left or died!",
+				Duration = 6
+			})
+		end
+	else
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "error",
+			Text = "Player not found or player died!",
+			Duration = 6
+		})
+	end
+end)
+
+Section:NewTextBox("loopfling a player", "fling a player (shorten name possible)", function(txt)
+	local target = findPlayer(txt)
+
+	if target ~= nil then
+		loopflinsg = true
+		while wait() do
+			local s,e = pcall(function()
+				beginFling()
+				plr.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame
+			end)
+
+			if loopflinsg == false then
+				break
+			end
+		end
+	else
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "error",
+			Text = "Player not found!",
+			Duration = 1
+		})
+	end
+end)
+
+Section:NewButton("Unloopfling", "stop all loopflinging", function()
+	if loopflinsg == true then
+		loopflinsg = false
+		char.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+	else
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "error",
+			Text = "Loopfling not able to validate!",
+			Duration = 3
+		})
+	end
+end)
+
+wait()
+
+function opp(a)
+	if a == true then
+		return false
+	end
+	return true
+end
+
+--Bypass TAB
+
+local PlayerTab = Window:NewTab("Bypass settings")
+wait()
+local Section = PlayerTab:NewSection("Movement bp")
+local bypassws
+Section:NewToggle("WS Bypass", "Make WS Higher easier", function(state)
+	if state then
+		char.HumanoidRootPart.Velocity = Vector3.new(0,50,0)
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "WS BP on",
+			Text = "You will have maybe higher ws!",
+			Duration = 6
+		})
+		bypassws = true
+		while wait(0.25) do
+			if bypassws == true then
+				char.HumanoidRootPart.Velocity = Vector3.new(0,-40,0)
+				char.HumanoidRootPart.CFrame = CFrame.new(char.HumanoidRootPart.CFrame.X *1.0002,char.HumanoidRootPart.CFrame.Y -0.5,char.HumanoidRootPart.CFrame.Z *1.0002)
+			else
+				break
+			end
+		end
+
+	else
+		bypassws = false
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "WS BP off",
+			Text = "You will NOT have maybe higher ws!",
+			Duration = 6
+		})
+	end
+end)
+
+local slock = false
+
+
+--Admin commands tab
+
+local PlayerTab = Window:NewTab("Owner Admin games")
+wait()
+local Section = PlayerTab:NewSection("Anti-Command")
+wait()
+Section:NewToggle("Anti-Local commands", "Disable commands like ;crash", function(state)
+	if state then
+		toggleACC = true
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "WARNING",
+			Text = "Using this in a non admin game may break the game.",
+			Duration = 6
+		})
+	else
+		toggleACC = false
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "Disabled",
+			Text = "Will no longer remove possible client commands.",
+			Duration = 6
+		})
+	end
+end)
+
+Section:NewTextBox("banish a player", "banish user", function(txt)
+	local target = findPlayer(txt)
+
+	if target ~= nil then
+		local s,e = pcall(function()
+			local args = {
+				[1] = ";apparate "..findPlayer(txt).Name.." 5680667182"
+			}
+
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+		end)
+		if e then
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "error",
+				Text = e,
+				Duration = 6
+			})
+
+		end
+	else
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "error",
+			Text = "Player not found or player died!",
+			Duration = 6
+		})
+	end
+end)
+
+
+Section:NewTextBox("forceplace a player", "forceplace user", function(txt)
+	local target = findPlayer(txt)
+
+	if target ~= nil then
+		local s,e = pcall(function()
+			local args = {
+				[1] = ";forceplace "..findPlayer(txt).Name.." 5680667182"
+			}
+
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+		end)
+		if e then
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "error",
+				Text = e,
+				Duration = 6
+			})
+
+		end
+	else
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "error",
+			Text = "Player not found or player died!",
+			Duration = 6
+		})
+	end
+end)
+
+Section:NewTextBox("kick a player", "attempt to kick user", function(txt)
+	local target = findPlayer(txt)
+
+	if target ~= nil then
+		local s,e = pcall(function()
+			local args = {
+				[1] = ";crash "..findPlayer(txt).Name
+			}
+
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Kicked",
+				Text = "Kicked player"
+			})
+		end)
+		if e then
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "error",
+				Text = e,
+				Duration = 6
+			})
+
+		end
+	else
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "error",
+			Text = "Player not found or player died!",
+			Duration = 6
+		})
+	end
+end)
+
+Section:NewTextBox("ban a player", "attempt to ban user", function(txt)
+	local targetName = findPlayer(txt)
+
+	if targetName ~= nil then
+		targetName = findPlayer(txt).Name
+		local s,e = pcall(function()
+			local args = {
+				[1] = ";crash "..targetName
+			}
+
+
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+			print("oops")
+			repeat wait(0.2)
+			until game.Players:WaitForChild(targetName,0.1) == nil
+
+			wait(1)
+			local args = {
+				[1] = ";pban "..targetName.." Abuse",
+				[2] = {
+					["length"] = "Infinite",
+					["lengthTime"] = "0m0h0d",
+					["server"] = "All"
+				}
+			}
+
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+
+			wait(1)
+			local args = {
+				[1] = ";directBan "..targetName.." Abuse",
+				[2] = {
+					["length"] = "Infinite",
+					["lengthTime"] = "0m0h0d",
+					["server"] = "All"
+				}
+			}
+		end)
+		if e then
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "error",
+				Text = e,
+				Duration = 6
+			})
+
+		end
+	else
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "error",
+			Text = "Player not found or player died!",
+			Duration = 6
+		})
+	end
+end)
+
+local autocrash = {}
+
+Section:NewTextBox("crashban a player", "puts a player in a auto crash list", function(txt)
+	local targetName = findPlayer(txt)
+
+	if targetName ~= nil then
+		targetName = findPlayer(txt).Name
+		local s,e = pcall(function()
+			table.insert(autocrash,targetName)
+			local args = {
+				[1] = ";crash "..targetName,
+			}
+
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+		end)
+		if e then
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "error",
+				Text = e,
+				Duration = 6
+			})
+
+		end
+	else
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "error",
+			Text = "Player not found or player died!",
+			Duration = 6
+		})
+	end
+end)
+
+game.Players.PlayerAdded:Connect(function(plr)
+	for _,v in pairs(autocrash) do
+		if v == plr.Name then
+			local args = {
+				[1] = ";crash "..plr.Name,
+			}
+
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Crash ban",
+				Text = "crashed a crash banned player"
+			})
+		end
+	end
+end)
+
+Section:NewButton("kick all", "kick all", function()
+	local args = {
+		[1] = ";crash others"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+
+Section:NewButton("kick nonfriends", "kick nonfriends", function()
+	local args = {
+		[1] = ";crash nonfriends"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("banish nonfriends", "banish nonfriends", function()
+	local args = {
+		[1] = ";apparate nonfriends 5680667182"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("[PERM] anti mute", "stops all mutes", function()
+	repeat wait(0)
+		game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat,true)
+	until 0==1
+end)
+
+
+Section:NewToggle("anti alt", "crash alts to stop unbans", function(state)
+	antiAlt = state
+end)
+
+Section:NewToggle("anti death", "reset char on death", function(state)
+	antiDeath = state
+end)
+
+local PlayerTab = Window:NewTab("Admin games")
+wait()
+local Section = PlayerTab:NewSection("Gear list")
+
+Section:NewButton("heal pot", "gives u a gear", function()
+	local args = {
+		[1] = ";gear me 11419319"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("Bomb", "gives u a gear", function()
+	local args = {
+		[1] = ";gear me 11999247"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("Luger (gun)", "gives u a gear", function()
+	local args = {
+		[1] = ";gear me 95354288"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("Magic carpet", "gives u a gear", function()
+	local args = {
+		[1] = ";gear me 225921000"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+
+--Render TAB
+
+local PlayerTab = Window:NewTab("Render")
+wait()
+local Section = PlayerTab:NewSection("ESP")
+wait()
+Section:NewButton("ALL players ESP", "highlight all players (aka chams)", function()
+	for _,v in pairs(game.Players:GetPlayers()) do
+		local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+		if pchar then
+			local hl = Instance.new("Highlight",pchar)
+			hl.Adornee = pchar
+			hl.FillColor = Color3.new(0.737255, 0.580392, 0.00784314)
+		end
+	end
+end)
+wait()
+Section:NewButton("players with tools ESP", "highlight all players with tools", function()
+	for _,v in pairs(game.Players:GetPlayers()) do
+		local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+		if pchar then
+			for _,a in pairs(v.Backpack:GetChildren()) do
+				if a:IsA("Tool") then
+					local hl = Instance.new("Highlight",pchar)
+					hl.Adornee = pchar
+					hl.FillColor = Color3.new(1, 0, 0)
+				end
+			end
+			for _,a in pairs(pchar:GetChildren()) do
+				if a:IsA("Tool") then
+					local hl = Instance.new("Highlight",pchar)
+					hl.Adornee = pchar
+					hl.FillColor = Color3.new(1, 0, 0)
+				end
+			end
+		end
+	end
+end)
+wait()
+--scripts
+
+local PlayerTab = Window:NewTab("Scripts")
+
+local Section = PlayerTab:NewSection("GREAT scripts")
+
+Section:NewButton("Infinite Yield", "(FE) admin commands", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+Section:NewButton("Dex Explorer", "explorer to see the game", function()
+	loadstring(game:HttpGet('https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4'))()
+end)
+wait()
+local PlayerTab = Window:NewTab("Fun")
+wait()
+local Section = PlayerTab:NewSection("local player")
+
+Section:NewToggle("Self fling", "RIP Self gone to void", function(state)
+	if state then
+		gspoof = true
+	else
+		gspoof = false
+	end
+end)
+
+--search for supported games
+if game.PlaceId == 142823291 then
+	game.StarterGui:SetCore("SendNotification",{
+		Title = "Supported game",
+		Text = "Supported game found. Adding MM2 TAB",
+		Duration = 6
+	})
+
+	local PlayerTab = Window:NewTab("MM2")
+
+	local Section = PlayerTab:NewSection("Gun + ESP")
+
+	Section:NewButton("ALL ESP", "highlight the innos+other roles", function()
+		for _,v in pairs(game.Players:GetPlayers()) do --ALL hl
+			local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+			if pchar then
+				local hl = Instance.new("Highlight",pchar)
+				hl.Adornee = pchar
+				hl.FillColor = Color3.new(0,1,0)
+			end
+		end
+		for _,v in pairs(game.Players:GetPlayers()) do --MURD HL
+			local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+			if pchar then
+				for _,a in pairs(v.Backpack:GetChildren()) do
+					if a.Name == "Knife" then
+						local hl = Instance.new("Highlight",pchar)
+						hl.Adornee = pchar
+						hl.FillColor = Color3.new(1, 0.23, 1)
+					end
+				end
+				for _,a in pairs(pchar:GetChildren()) do
+					if a.Name == "Knife" then
+						local hl = Instance.new("Highlight",pchar)
+						hl.Adornee = pchar
+						hl.FillColor = Color3.new(1, 0.23, 1)
+					end
+				end
+			end
+		end
+		for _,v in pairs(game.Players:GetPlayers()) do
+			local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+			if pchar then
+				for _,a in pairs(v.Backpack:GetChildren()) do
+					if a.Name == "Gun" then
+						local hl = Instance.new("Highlight",pchar)
+						hl.Adornee = pchar
+						hl.FillColor = Color3.new(0, 0.23, 1)
+					end
+				end
+				for _,a in pairs(pchar:GetChildren()) do
+					if a.Name == "Gun" then
+						local hl = Instance.new("Highlight",pchar)
+						hl.Adornee = pchar
+						hl.FillColor = Color3.new(0, 0.23, 1)
+					end
+				end
+			end
+		end
+	end)
+	Section:NewToggle("auto all esp", "ALWAYS have 'all' esp on and update it", function(state)
+		if state then
+			allMM2ESP = true
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "ALL ESP on",
+				Text = "ALL esp will now be auto updated! NOTICE: MAY SLOW DOWN OTHER LOOPED EXPLOITS SLIGHTLY!",
+				Duration = 6
+			})
+		else
+			allMM2ESP = false
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "ALL ESP off",
+				Text = "ALL esp will NOT be auto updated.",
+				Duration = 6
+			})
+		end
+	end)
+	Section:NewButton("Murd ESP", "highlight the murderer", function()
+		for _,v in pairs(game.Players:GetPlayers()) do
+			local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+			if pchar then
+				for _,a in pairs(v.Backpack:GetChildren()) do
+					if a.Name == "Knife" then
+						local hl = Instance.new("Highlight",pchar)
+						hl.Adornee = pchar
+						hl.FillColor = Color3.new(1, 0.23, 1)
+					end
+				end
+				for _,a in pairs(pchar:GetChildren()) do
+					if a.Name == "Knife" then
+						local hl = Instance.new("Highlight",pchar)
+						hl.Adornee = pchar
+						hl.FillColor = Color3.new(1, 0.23, 1)
+					end
+				end
+			end
+		end
+	end)
+	wait()
+	Section:NewButton("Sheriff ESP", "highlight the Sheriff", function()
+		for _,v in pairs(game.Players:GetPlayers()) do
+			local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+			if pchar then
+				for _,a in pairs(v.Backpack:GetChildren()) do
+					if a.Name == "Gun" then
+						local hl = Instance.new("Highlight",pchar)
+						hl.Adornee = pchar
+						hl.FillColor = Color3.new(0, 0.23, 1)
+					end
+				end
+				for _,a in pairs(pchar:GetChildren()) do
+					if a.Name == "Gun" then
+						local hl = Instance.new("Highlight",pchar)
+						hl.Adornee = pchar
+						hl.FillColor = Color3.new(0, 0.23, 1)
+					end
+				end
+			end
+		end
+	end)
+	Section:NewButton("Coin ESP", "highlight the coins", function()
+		for _,v in pairs(game.Workspace:GetDescendants()) do
+			if v.Name == "CoinContainer" then
+				for _,a in pairs(v:GetChildren()) do
+					local hl = Instance.new("Highlight",v)
+					hl.Adornee = v
+					hl.FillColor = Color3.new(0.737255, 0.847059, 0.0196078)
+				end
+			end
+		end
+	end)
+	wait()
+	Section:NewToggle("Gun esp + Alert", "an alert and a marker of where it is", function(state)
+		if state then
+			GESP = true
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Drop alerts on",
+				Text = "You will be alerted if the gun drops!",
+				Duration = 6
+			})
+		else
+			GESP = false
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Drop alerts off",
+				Text = "You will NOT be alerted if the gun drops! This may be a mistake!",
+				Duration = 6
+			})
+		end
+	end)
+	wait()
+	Section:NewButton("Tp to gun", "tp to gun where it is dropped", function()
+		if game.Workspace:WaitForChild("GunDrop",0.001) ~= nil then
+			local posbefore = char.HumanoidRootPart.CFrame
+			char.HumanoidRootPart.CFrame = game.Workspace:WaitForChild("GunDrop",0.001).CFrame
+			wait(0.1)
+			char.HumanoidRootPart.Velocity = Vector3.new(0,70,0)
+			wait(0.1)
+			char.HumanoidRootPart.Velocity = Vector3.new(0,-40,0)
+
+			if game.Workspace:WaitForChild("GunDrop",0.001) ~= nil then
+				char.HumanoidRootPart.CFrame = game.Workspace:WaitForChild("GunDrop",0.001).CFrame
+				wait(0.1)
+				char.HumanoidRootPart.Velocity = Vector3.new(0,70,0)
+				wait(0.1)
+				char.HumanoidRootPart.Velocity = Vector3.new(0,-40,0)
+			end
+			wait()
+			char.HumanoidRootPart.CFrame = posbefore
+		else
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Error",
+				Text = "Gun not found!",
+				Duration = 6
+			})
+		end
+	end)
+	wait()
+	Section:NewToggle("auto tp to gun", "tp to gun where it is dropped and when", function(state)
+		if state then
+			GTP = true
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Gun Tp",
+				Text = "Gun tp is now on!",
+				Duration = 6
+			})
+		else
+			GTP = false
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Gun Tp",
+				Text = "Gun tp is now OFF!",
+				Duration = 6
+			})
+		end
+	end)
+	Section:NewLabel("Teleports")
+	Section:NewButton("Tp to map", "tp to map", function()
+		local tp = false
+		for _,v in pairs(game.Workspace:GetDescendants()) do
+			if v.Name == "CoinContainer" or v.Name == "CoinAreas" then
+				print("found")
+				if tp == false then
+					local tp = true
+					for _,v in pairs(v:GetChildren()) do
+						if v:FindFirstChildOfClass("BasePart") ~= nil then
+							char.HumanoidRootPart.CFrame = v:FindFirstChildOfClass("BasePart").CFrame
+						end
+					end
+
+				else
+					print("Already tp'd!")
+				end
+			end
+		end
+	end)
+end
+if game.PlaceId == 189707 then
+	game.StarterGui:SetCore("SendNotification",{
+		Title = "Supported game",
+		Text = "Supported game found. Adding NDS TAB",
+		Duration = 6
+	})
+
+	local PlayerTab = Window:NewTab("NDS")
+
+	local Section = PlayerTab:NewSection("Player")
+
+	Section:NewButton("Get ballon (someone else must have it)", "Rob someones ballon and get yours", function()
+		for _,v in pairs(game.Players:GetPlayers()) do
+			local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+			if pchar then
+				for _,a in pairs(v.Backpack:GetChildren()) do
+					if a.Name == "GreenBalloon" then
+						local ballon = a:Clone()
+						ballon.Parent = plr.StarterGear
+
+						local ballon = a:Clone()
+						ballon.Parent = plr.Backpack
+					end
+				end
+				for _,a in pairs(pchar:GetChildren()) do
+					if a.Name == "GreenBalloon" then
+						local ballon = a:Clone()
+						ballon.Parent = plr.StarterGear
+
+						local ballon = a:Clone()
+						ballon.Parent = plr.Backpack
+					end
+				end
+			end
+		end
+	end)
+	Section:NewToggle("no view disruption", "removes sandstorm from breaking ur view", function(state)
+		if state then
+			BVI = true
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "better view on",
+				Text = "You will now see better!",
+				Duration = 6
+			})
+		else
+			BVI = false
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "better view off",
+				Text = "You will not see better :(",
+				Duration = 6
+			})
+		end
+	end)
+end
+if game.PlaceId == 3108078982 then
+	game.StarterGui:SetCore("SendNotification",{
+		Title = "Supported game",
+		Text = "Supported game found. Adding HDAdmin TAB",
+		Duration = 6
+	})
+
+	local PlayerTab = Window:NewTab("HDAdmin")
+
+	local Section = PlayerTab:NewSection("Admin")
+
+	Section:NewButton("go to admin pads", "teleport to admin pads", function()
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(18,7,129)
+	end)
+end
+plr.PlayerGui.ChildAdded:Connect(function(obj)
+	if toggleACC == true then
+		if obj:IsA("LocalScript") then
+			wait(0)
+			obj:Destroy()
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Blocked client script",
+				Text = "Client sided script removed from player.",
+				Duration = 3
+			})
+		end
+	end
+	if BVI == true then
+		if obj.Name == "SandStormGui" then
+			wait(0)
+			obj:Destroy()
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Blocked view obfuscation",
+				Text = "GUI removed from player.",
+				Duration = 3
+			})
+		end
+	end
+end)
+
+if game.PlaceId == 4913581664 then
+	game.StarterGui:SetCore("SendNotification",{
+		Title = "Supported game",
+		Text = "Supported game found. Adding RDite TAB",
+		Duration = 6
+	})
+
+	local PlayerTab = Window:NewTab("RDite")
+
+	local Section = PlayerTab:NewSection("Teleports")
+
+	Section:NewButton("go to end", "teleport to the end", function()
+		plr.Character.HumanoidRootPart.CFrame = CFrame.new(312,853,321)
+	end)
+end
+wait()
+
+--Settings TAB
+
+local PlayerTab = Window:NewTab("Settings")
+wait()
+local Section = PlayerTab:NewSection("No settings yet!")
+
+Section:NewToggle("Update ESP automatically (may lag loop)", "update esp every loop (may slow down exploits)", function(state)
+	if state then
+		UESP = true
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "Update esp on",
+			Text = "Auto update esp on! WARNING: MAY CAUSE SOME EXPLOIT DELAY!!!!",
+			Duration = 6
+		})
+	else
+		GTP = false
+		game.StarterGui:SetCore("SendNotification",{
+			Title = "Update esp off",
+			Text = "Auto update esp off!",
+			Duration = 6
+		})
+	end
+end)
+
+-- <<EXPLOIT FUNCTIONS>> --
+
+rs.Stepped:Connect(function()
+	if bhop == true then
+		wason = true
+		char:WaitForChild("Humanoid").UseJumpPower = true
+		char:WaitForChild("Humanoid").JumpPower = 15
+		char:WaitForChild("Humanoid").Jump = true
+	elseif wason == true then
+		wason = false
+		char:WaitForChild("Humanoid").JumpPower = 50
+	end
+	if nclip == true then
+		for _,v in pairs(char:GetChildren()) do
+			if v:IsA("BasePart") then
+				v.CanCollide = false
+			end
+		end
+	end
+	if gspoof == true then
+		if char:WaitForChild("Humanoid",1) then
+			char:WaitForChild("Humanoid",1):ChangeState(Enum.HumanoidStateType.Landed)
+			task.wait()
+			char:WaitForChild("Humanoid",1):ChangeState(Enum.HumanoidStateType.Seated)
+			wait()
+			char:WaitForChild("Humanoid",1):ChangeState(Enum.HumanoidStateType.None)
+			task.wait()
+			char:WaitForChild("Humanoid",1):ChangeState(Enum.HumanoidStateType.Climbing)
+
+			if char:WaitForChild("Torso",0.01) then
+				local ts = game:GetService("TweenService")
+				local tinf = TweenInfo.new(
+					0.5,
+					Enum.EasingStyle.Linear,
+					Enum.EasingDirection.Out,
+					0,
+					true
+				)
+				local goal = {
+					Position = Vector3.new(char.Torso.Position.X,char.Torso.Position.Y+0.02,char.Torso.Position.Z +0.4)
+				}
+				local tween = ts:Create(char.Torso,tinf,goal)
+				tween:Play()
+			else
+				local ts = game:GetService("TweenService")
+				local tinf = TweenInfo.new(
+					0.5,
+					Enum.EasingStyle.Linear,
+					Enum.EasingDirection.Out,
+					0,
+					true
+				)
+				local goal = {
+					Position = Vector3.new(char.LowerTorso.Position.X,char.LowerTorso.Position.Y+0.02,char.LowerTorso.Position.Z +0.4)
+				}
+				local tween = ts:Create(char.LowerTorso,tinf,goal)
+				tween:Play()
+			end
+			char.Torso.Velocity = Vector3.new(50000,5000000,500000000)
+		end
+	end
+end)
+
+game.Players.ChildAdded:Connect(function(plr)
+	if antiAlt == true then
+		if plr.AccountAge <= 20 or plr.Name == "xetitta" then
+			local args = {
+				[1] = ";sm [Anti alt] alt removed name: "..plr.Name
+			}
+
+
+			game.StarterGui:SetCore("SendNotification",{
+				Title = "Anti alt";
+				Text = "Someone joined! Info.Name = "..plr.Name.." acc age = "..plr.AccountAge
+			})
+
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+			print("oops")
+			wait(0.4)
+			local args = {
+				[1] = ";crash "..plr.Name
+			}
+
+
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+			print("oops")
+		end
+	end
+end)
+
+-- <<EXPLOIT LOOP>> --
+
+function mainLoop()
+	plr = game.Players.LocalPlayer
+	char = plr.Character
+	char.Humanoid.Died:Connect(function()
+		NOFLY()
+	end)
+	while true do
+		local s,e = pcall(function()
+			plr = game.Players.LocalPlayer
+			char = plr.Character
+			wait(0)
+			if toggleIJ == true then
+				char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+			end
+			if GESP == true then
+				if game.Workspace:WaitForChild("GunDrop",0.01) ~= nil then
+					if game.Workspace:WaitForChild("GunDrop",0.01):WaitForChild("hlbox",0.01) == nil then
+						local hlBox = Instance.new("Part",game.Workspace:WaitForChild("GunDrop",0.01))
+						hlBox.Name = "hlbox"
+						hlBox.Anchored = true
+						hlBox.Size = Vector3.new(2,2,2)
+						hlBox.Transparency = 0.9
+						hlBox.CanCollide = false
+						hlBox.CFrame = game.Workspace:WaitForChild("GunDrop",0.01).CFrame
+
+						local hl = Instance.new("Highlight",game.Workspace:WaitForChild("GunDrop",0.01))
+						hl.Adornee = game.Workspace:WaitForChild("GunDrop",0.01)
+						hl.FillColor = Color3.new(0.333333, 0.333333, 0.498039)
+
+						local hl = Instance.new("Highlight",hlBox)
+						hl.Adornee = hlBox
+						hl.FillColor = Color3.new(0.333333, 0.333333, 0.498039)
+
+						game.StarterGui:SetCore("SendNotification",{
+							Title = "Found Gun",
+							Text = "Gun esp on.",
+							Duration = 3
+						})
+
+					end
+				end
+			end
+			if antiDeath == true then
+				if char:WaitForChild("Humanoid").Health == 0 then
+					local args = {
+						[1] = ";re me"
+					}
+					game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+					wait(0.25)
+					game.StarterGui:SetCore("SendNotification",{
+						Title = "anti death",
+						Text = "stopped u from dying!",
+						Duration = 6
+					})
+				end
+			end
+			if GTP == true then
+				if game.Workspace:WaitForChild("GunDrop",0.001) ~= nil then
+					local posbefore = char.HumanoidRootPart.CFrame
+					char.HumanoidRootPart.CFrame = game.Workspace:WaitForChild("GunDrop",0.001).CFrame
+					wait(0.1)
+					char.HumanoidRootPart.Velocity = Vector3.new(0,70,0)
+					wait(0.1)
+					char.HumanoidRootPart.Velocity = Vector3.new(0,-40,0)
+
+					if game.Workspace:WaitForChild("GunDrop",0.001) ~= nil then
+						char.HumanoidRootPart.CFrame = game.Workspace:WaitForChild("GunDrop",0.001).CFrame
+						wait(0.1)
+						char.HumanoidRootPart.Velocity = Vector3.new(0,70,0)
+						wait(0.1)
+						char.HumanoidRootPart.Velocity = Vector3.new(0,-40,0)
+					end
+					wait()
+					char.HumanoidRootPart.CFrame = posbefore
+				end
+			end
+			if NFall == true then
+				wait(0.02)
+				local nfallpart = Instance.new("Part",char.HumanoidRootPart)
+				nfallpart.Transparency = 1
+				nfallpart.Size = Vector3.new(300,1,300)
+				nfallpart.Anchored = true
+				nfallpart.CFrame = CFrame.new(char.HumanoidRootPart.CFrame.X -0.5,char.HumanoidRootPart.CFrame.Y -5,char.HumanoidRootPart.CFrame.Z)
+				wait(0.01)
+				nfallpart:Destroy()
+			end
+			if ptrail == true then
+				local nfallpart = Instance.new("Part",char.HumanoidRootPart)
+				nfallpart.Transparency = 0.5
+				nfallpart.Size = Vector3.new(5,1,5)
+				nfallpart.Anchored = true
+				nfallpart.CFrame = CFrame.new(char.HumanoidRootPart.CFrame.X -0.5,char.HumanoidRootPart.CFrame.Y -3.5,char.HumanoidRootPart.CFrame.Z)
+				wait(0.01)
+				nfallpart:Destroy()
+			end
+			if allMM2ESP == true then
+				for _,v in pairs(game.Players:GetPlayers()) do --MURD HL
+					local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+					if pchar then
+						for _,a in pairs(v.Backpack:GetChildren()) do
+							if a.Name == "Knife" then
+								if v.Character:WaitForChild("Highlight",0.01) then
+									v.Character:WaitForChild("Highlight",0.01)
+								end
+								local hl = Instance.new("Highlight",pchar)
+								hl.Adornee = pchar
+								hl.FillColor = Color3.new(1, 0.23, 1)
+							end
+						end
+						for _,a in pairs(pchar:GetChildren()) do
+							if a.Name == "Knife" then
+								if v.Character:WaitForChild("Highlight",0.01) then
+									v.Character:WaitForChild("Highlight",0.01)
+								end
+								local hl = Instance.new("Highlight",pchar)
+								hl.Adornee = pchar
+								hl.FillColor = Color3.new(1, 0.23, 1)
+							end
+						end
+					end
+				end
+				for _,v in pairs(game.Players:GetPlayers()) do
+					local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+					if pchar then
+						for _,a in pairs(v.Backpack:GetChildren()) do
+							if a.Name == "Gun" then
+								if v.Character:WaitForChild("Highlight",0.01) then
+									v.Character:WaitForChild("Highlight",0.01)
+								end
+								local hl = Instance.new("Highlight",pchar)
+								hl.Adornee = pchar
+								hl.FillColor = Color3.new(0, 0.23, 1)
+							end
+						end
+						for _,a in pairs(pchar:GetChildren()) do
+							if a.Name == "Gun" then
+								if v.Character:WaitForChild("Highlight",0.01) then
+									v.Character:WaitForChild("Highlight",0.01)
+								end
+								local hl = Instance.new("Highlight",pchar)
+								hl.Adornee = pchar
+								hl.FillColor = Color3.new(0, 0.23, 1)
+							end
+						end
+						for _,v in pairs(game.Players:GetPlayers()) do --ALL hl
+							if v.Character:WaitForChild("Highlight",0.01) == nil then
+								local pchar = game.Workspace:WaitForChild(v.Name,0.1)
+
+								if pchar then
+									local hl = Instance.new("Highlight",pchar)
+									hl.Adornee = pchar
+									hl.FillColor = Color3.new(0,1,0)
+								end
+							end
+						end
+					end
+				end
+			end
+		end)
+		if e then
+			print(e)
+			mainLoop()
+		end
+	end
+end
+
+mainLoop()
