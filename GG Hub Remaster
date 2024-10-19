@@ -28,6 +28,7 @@ end)
 -- Owner Admin Tab
 local Tab = Window:NewTab("Owner Admin")
 local Section = Tab:NewSection("Anti Local Commands")
+Section:NewLabel("credits to bbb for making most of the stuff like anti-mute and anti-crash")
 
 local connection -- Variable to hold the connection
 
