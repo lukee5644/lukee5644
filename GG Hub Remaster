@@ -1,4 +1,4 @@
-print("Executed Script")
+print("executed script")
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
 local Window = Library.CreateLib("GG Hub Remaster", "GrapeTheme")
@@ -29,7 +29,6 @@ end)
 -- Owner Admin Tab
 local Tab = Window:NewTab("Owner Admin")
 local Section = Tab:NewSection("Anti Local Commands")
-Section:NewLabel("credits to bbb for making most of the stuff like anti-mute and anti-crash")
 
 local connection -- Variable to hold the connection
 
@@ -60,6 +59,61 @@ Section:NewButton("Anti-mute", "Disables Mute", function()
 		game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat,true)
 	until 0==1
 end)
+
+Section:NewTextBox("Banish user", "Banish users", function(txt)
+    local target = game.Players:FindFirstChild(txt) -- Find player by name
+
+    if target then
+        local success, errorMessage = pcall(function()
+            local args = {
+                [1] = ";ap " .. target.Name .. " inf"
+            }
+            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+        end)
+
+        if not success then
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "Error",
+                Text = errorMessage,
+                Duration = 6
+            })
+        end
+    else
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Player not found!",
+            Duration = 6
+        })
+    end
+end)
+
+Section:NewTextBox("Crash user", "Crash users", function(txt)
+    local target = game.Players:FindFirstChild(txt) -- Find player by name
+
+    if target then
+        local success, errorMessage = pcall(function()
+            local args = {
+                [1] = ";crash " .. target.Name
+            }
+            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+        end)
+
+        if not success then
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "Error",
+                Text = errorMessage,
+                Duration = 6
+            })
+        end
+    else
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Player not found!",
+            Duration = 6
+        })
+    end
+end)
+
 
 Section:NewTextBox("Forceplace user", "Forceplace users", function(txt)
     local target = game.Players:FindFirstChild(txt) -- Find player by name
