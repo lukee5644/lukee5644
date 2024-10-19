@@ -184,3 +184,14 @@ Section:NewButton("Magic carpet", "gives u a gear", function()
 
 	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
 end)
+
+local Tab = Window:NewTab("Scripts")
+local Section = Tab:NewSection("Great scripts, credits to the original creators.")
+
+Section:NewButton("Infinite Yield", "(FE) admin commands", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+Section:NewButton("Dex Explorer", "explorer to see the game", function()
+	loadstring(game:HttpGet('https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4'))()
+end)
