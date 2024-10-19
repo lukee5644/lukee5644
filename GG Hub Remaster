@@ -150,4 +150,37 @@ local args = {
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
 end)
 
+local Tab = Window:NewTab("Admin")
+local Section = Tab:NewSection("Gears and stuff")
 
+Section:NewButton("Heal pot", "gives u a gear", function()
+	local args = {
+		[1] = ";gear me 11419319"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("Bomb", "gives u a gear", function()
+	local args = {
+		[1] = ";gear me 11999247"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("Luger (gun)", "gives u a gear", function()
+	local args = {
+		[1] = ";gear me 95354288"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("Magic carpet", "gives u a gear", function()
+	local args = {
+		[1] = ";gear me 225921000"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
