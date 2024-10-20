@@ -197,5 +197,5 @@ Section:NewButton("Dex Explorer", "explorer to see the game", function()
 end)
 
 Section:NewButton("Turle Spy", "Remote controller", function()
-	loadstring(game:HttpGet('loadstring(game:HttpGet("https://raw.githubusercontent.com/Turtle-Brand/Turtle-Spy/main/source.lua", true))()'))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/MirayXS/scripts-4/refs/heads/main/TurtleSpy.lua",true))()", true))()'))()
 end)
