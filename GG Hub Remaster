@@ -202,3 +202,18 @@ end)
 Section:NewButton("Turle Spy", "Remote controller", function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/MirayXS/scripts-4/refs/heads/main/TurtleSpy.lua'))()
 end)
+
+Section:NewButton("GG Hub", "The Original GG Hub", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ScripterRBLX/gg-hub-free/main/GGHUB",true))()
+end)
+
+Section:NewButton("GG Hub V2", "GG Hub V2", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ScripterRBLX/gg-hub-free/main/GGHubV2",true))()
+end)
+
+local Tab = Window:NewTab("Credits")
+local Section = Tab:NewSection("cool credits")
+
+Section:NewLabel("bbb908 for making most of the stuff")
+Section:NewLabel("like anti-mute and others")
+Section:NewLabel("GG Hub server: bP7X9HsH")
