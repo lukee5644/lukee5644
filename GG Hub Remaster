@@ -57,6 +57,7 @@ end)
 
 -- Anti Mute Button
 Section:NewButton("Anti-mute", "Disables Mute", function()
+    print("enabled anti mute")
 		repeat wait(0)
 		game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat,true)
 	until 0==1
