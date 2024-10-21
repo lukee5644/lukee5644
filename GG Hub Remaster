@@ -34,6 +34,7 @@ local connection -- Variable to hold the connection
 
 Section:NewToggle("Anti-Crash", "Disables Crash", function(state)
     if state then
+	print("enabled anti crash")
         connection = game.Players.LocalPlayer.PlayerGui.ChildAdded:Connect(function(obj)
             if obj:IsA("LocalScript") then
                 task.wait()
@@ -46,6 +47,7 @@ Section:NewToggle("Anti-Crash", "Disables Crash", function(state)
             end
         end)
     else
+	print("disabled anti crash")
         if connection then
             connection:Disconnect()
             connection = nil
