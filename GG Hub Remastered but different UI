@@ -180,6 +180,28 @@ ag:Textbox("Give a player btools", "Full Username here!", true, function(t)
     end
 end)
 
+local scr = serv:Channel("Scripts")
+scr:Button("Infinite Yield", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+scr:Button("Dex Explorer", function()
+	loadstring(game:HttpGet('https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4'))()
+end)
+
+scr:Button("Turtle Spy", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/MirayXS/scripts-4/refs/heads/main/TurtleSpy.lua'))()
+end)
+
+scr:Button("GG Hub V1", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ScripterRBLX/gg-hub-free/main/GGHUB",true))()
+end)
+
+scr:Button("GG Hub V2", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ScripterRBLX/gg-hub-free/main/GGHubV2",true))()
+end)
+
+
 local creds = serv:Channel("Credits")
 
 creds:Label("bbb908 for making the original gg hub")
