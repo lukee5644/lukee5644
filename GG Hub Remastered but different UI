@@ -1,0 +1,190 @@
+local DiscordLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/lukee5644/lukee5644/refs/heads/main/DiscordLib",true))()
+
+local win = DiscordLib:Window("GG Hub Remaster")
+
+local serv = win:Server("Preview", "")
+
+local sldrsandmods = serv:Channel("Modifiers")
+local sldr = sldrsandmods:Slider("Walkspeed", 0, 1000, 400, function(t)
+	    local character = game.Players.LocalPlayer.Character
+    if character and character:FindFirstChild("Humanoid") then
+        character.Humanoid.WalkSpeed = t
+		end
+end)
+	sldrsandmods:Button("Change to 16", function()
+sldr:Change(16)
+end)
+
+local sldr = sldrsandmods:Slider("JumpPower", 0, 1000, 400, function(t)
+	    local character = game.Players.LocalPlayer.Character
+    if character and character:FindFirstChild("Humanoid") then
+        character.Humanoid.JumpPower = t
+		end
+end)
+		sldrsandmods:Button("Change to 50", function()
+sldr:Change(50)
+end)
+
+
+local oa = serv:Channel("Owner admin")
+
+oa:Toggle("Anti-Local commands",false, function(bool)
+	if bool then
+	print("enabled anti local Commands")
+        connection = game.Players.LocalPlayer.PlayerGui.ChildAdded:Connect(function(obj)
+            if obj:IsA("LocalScript") then
+                task.wait()
+                obj:Destroy()
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Anti-Local Command",
+                    Text = "Blocked Local Command",
+                    Duration = 6
+                })
+            end
+        end)
+    else
+	print("disabled anti local commands")
+        if connection then
+            connection:Disconnect()
+            connection = nil
+        end
+    end
+end)
+
+oa:Button("Anti-Mute", function()
+	print("enabled anti mute")
+		repeat wait(0)
+		game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat,true)
+	until 0==1
+end)
+
+oa:Textbox("Banish User", "Full Username here!", true, function(t)
+	local target = game.Players:FindFirstChild(t) -- Find player by name
+
+    if target then
+        local success, errorMessage = pcall(function()
+            local args = {
+                [1] = ";ap " .. target.Name .. " inf"
+            }
+            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+        end)
+
+        if not success then
+			DiscordLib:Notification("Error", "error", "Okay!")
+        end
+    else
+		DiscordLib:Notification("Error", "Can't find user", "Okay!")
+    end
+end)
+
+oa:Textbox("Forceplace user", "Full Username here!", true, function(t)
+	local target = game.Players:FindFirstChild(t) -- Find player by name
+
+    if target then
+        local success, errorMessage = pcall(function()
+            local args = {
+                [1] = ";forceplace " .. target.Name .. " 5680667182"
+            }
+            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+        end)
+
+        if not success then
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "Error",
+                Text = errorMessage,
+                Duration = 6
+            })
+        end
+    else
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Player not found!",
+            Duration = 6
+        })
+    end
+end)
+
+oa:Button("GlobalForceplace", function()
+	local args = {
+[1] = ";globalforceplace 5680667182"
+}
+
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+local ag = serv:Channel("Admin games")
+ag:Button("Heal pot", function()
+	local args = {
+		[1] = ";gear me 11419319"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+ag:Button("Bomb", function()
+	local args = {
+		[1] = ";gear me 11999247"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+ag:Button("Gun", function()
+	local args = {
+		[1] = ";gear me 95354288"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+ag:Button("Magic Carpet", function()
+	local args = {
+		[1] = ";gear me 225921000"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+ag:Button("Rainbow Periastron", function()
+	local args = {
+		[1] = ";gear me 159229806"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+ag:Textbox("Give a player btools", "Full Username here!", true, function(t)
+	local target = game.Players:FindFirstChild(t) -- Find player by name
+
+    if target then
+        local success, errorMessage = pcall(function()
+            local args = {
+                [1] = ";btools " .. target.Name
+            }
+            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+        end)
+
+        if not success then
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "Error",
+                Text = errorMessage,
+                Duration = 6
+            })
+        end
+    else
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Player not found!",
+            Duration = 6
+        })
+    end
+end)
+
+local creds = serv:Channel("Credits")
+
+creds:Label("bbb908 for making the original gg hub")
+creds:Label("giving me anti-local script source")
+creds:Label("bbb908 for making the other command stuff")
+creds:Label("dawid-scripts for making the ui library")
+
+win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
