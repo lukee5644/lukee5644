@@ -151,7 +151,7 @@ function DiscordLib:Window(text)
 
 	CloseBtn.Name = "CloseBtn"
 	CloseBtn.Parent = TopFrame
-	CloseBtn.BackgroundColor3 = Color3.fromRGB(32, 34, 37)
+	CloseBtn.BackgroundColor3 = Color3.fromRGB(15, 23, 29)
 	CloseBtn.BackgroundTransparency = 0
 	CloseBtn.Position = UDim2.new(0.959063113, 0, -0.0169996787, 0)
 	CloseBtn.Size = UDim2.new(0, 28, 0, 22)
