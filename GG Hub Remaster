@@ -40,15 +40,15 @@ local Section = Tab:NewSection("Anti Local Commands")
 
 local connection -- Variable to hold the connection
 
-Section:NewToggle("Anti-Crash", "Disables Crash", function(state)
+Section:NewToggle("Anti-Local Scripts", "Disables local scripts like ;crash", function(state)
     if state then
-	print("enabled anti crash")
+	print("enabled anti local script")
         connection = game.Players.LocalPlayer.PlayerGui.ChildAdded:Connect(function(obj)
             if obj:IsA("LocalScript") then
                 task.wait()
                 obj:Destroy()
                 game.StarterGui:SetCore("SendNotification", {
-                    Title = "Anti-Crash",
+                    Title = "Anti-Local Script",
                     Text = "Blocked Local Script",
                     Duration = 6
                 })
