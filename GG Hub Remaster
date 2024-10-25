@@ -40,15 +40,15 @@ local Section = Tab:NewSection("Anti Local Commands")
 
 local connection -- Variable to hold the connection
 
-Section:NewToggle("Anti-Local Scripts", "Disables local scripts like ;crash", function(state)
+Section:NewToggle("Anti-Crash", "Disables Crash", function(state)
     if state then
-	print("enabled anti local script")
+	print("enabled anti crash")
         connection = game.Players.LocalPlayer.PlayerGui.ChildAdded:Connect(function(obj)
             if obj:IsA("LocalScript") then
                 task.wait()
                 obj:Destroy()
                 game.StarterGui:SetCore("SendNotification", {
-                    Title = "Anti-Local Script",
+                    Title = "Anti-Crash",
                     Text = "Blocked Local Script",
                     Duration = 6
                 })
@@ -191,6 +191,14 @@ end)
 Section:NewButton("Magic carpet", "gives u a gear", function()
 	local args = {
 		[1] = ";gear me 225921000"
+	}
+
+	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("Rainbow sword", "gives u a gear", function()
+	local args = {
+		[1] = ";gear me 159229806"
 	}
 
 	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
