@@ -161,6 +161,8 @@ local args = {
 game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
 end)
 
+local Section = Tab:NewSection("Server stuff")
+
 Section:NewButton("Server crasher [PERM]", "Crash server", function()
     print("enabled server crasher")
 		while true do
