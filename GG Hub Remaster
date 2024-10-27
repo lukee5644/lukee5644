@@ -171,6 +171,16 @@ Section:NewButton("Server crasher [PERM]", "Crash server", function()
 		end
 end)
 
+Section:NewButton("Annoy server [PERM]", "Annoy server", function()
+    print("enabled annoying stuff")
+		while true do
+			local args = {
+				[1] = ";re others"
+			}
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+		end
+end)
+
 
 
 local Tab = Window:NewTab("Admin")
