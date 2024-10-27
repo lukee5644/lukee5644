@@ -181,6 +181,15 @@ Section:NewButton("Annoy server [PERM]", "Annoy server", function()
 		end
 end)
 
+Section:NewButton("Spam Alert server [PERM]", "Sends alerts every milisecond", function()
+    print("enabled virus")
+		while true do
+			local args = {
+				[1] = ";alert all backdoored 101"
+			}
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+		end
+end)
 
 
 local Tab = Window:NewTab("Admin")
