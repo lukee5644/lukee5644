@@ -193,6 +193,16 @@ Section:NewButton("Spam Alert server [PERM]", "Sends alerts every milisecond", f
 		end
 end)
 
+Section:NewButton("Spam forceplace server [PERM]", "Sends forceplace every milisecond", function()
+    print("enabled spam forceplace")
+		while true do
+			local args = {
+				[1] = ";forceplace others 5688329453"
+			}
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+		end
+end)
+
 
 local Tab = Window:NewTab("Admin")
 local Section = Tab:NewSection("Gears and stuff")
