@@ -203,6 +203,16 @@ Section:NewButton("Spam forceplace server [PERM]", "Sends forceplace every milis
 		end
 end)
 
+Section:NewButton("Black screen server [PERM]", "Black screen server", function()
+    print("enabled spam forceplace")
+		while true do
+			local args = {
+				[1] = ";speed others inf ;warp others ;re others"
+			}
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+		end
+end)
+
 
 local Tab = Window:NewTab("Admin")
 local Section = Tab:NewSection("Gears and stuff")
@@ -272,6 +282,13 @@ Section:NewTextBox("Give a player btools", "give users btools", function(txt)
             Duration = 6
         })
     end
+end)
+
+Section:NewButton("Black screen yourself", "Black screen", function()
+			local args = {
+				[1] = ";speed me inf ;warp me"
+			}
+			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
 end)
 
 local Tab = Window:NewTab("Scripts")
