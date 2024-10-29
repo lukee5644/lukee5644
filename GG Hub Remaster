@@ -153,6 +153,37 @@ Section:NewTextBox("Forceplace user", "Forceplace users", function(txt)
     end
 end)
 
+Section:NewTextBox("Black screen user", "black screen users", function(txt)
+    local target = game.Players:FindFirstChild(txt) -- Find player by name
+
+    if target then
+        local success, errorMessage = pcall(function()
+            local args = {
+                [1] = ";speed " .. target.Name .. " inf"
+            }
+            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+		end)
+	        local args = {
+                [1] = ";warp " .. target.Name
+            }
+            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+
+        if not success then
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "Error",
+                Text = errorMessage,
+                Duration = 6
+            })
+        end
+    else
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Player not found!",
+            Duration = 6
+        })
+    end
+end)
+
 Section:NewButton("Globalforceplace", "forceplace other servers", function()
 local args = {
 [1] = ";globalforceplace 5680667182"
