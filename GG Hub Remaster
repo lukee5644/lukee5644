@@ -14,7 +14,7 @@ local Tab = Window:NewTab("Modifiers")
 local Section = Tab:NewSection("Walkspeed and Jumppower")
 
 -- Toggle UI keybind
-Section:NewKeybind("Toggle UI Keybind", "No description", Enum.KeyCode.F, function()
+Section:NewKeybind("Toggle UI Keybind", "No description", Enum.KeyCode.T, function()
     Library:ToggleUI()
 end)
 
