@@ -40,7 +40,7 @@ local Tab = Window:NewTab("OP Stuff")
 local Section = Tab:NewSection("Killstreak")
 local Section = Tab:NewSection("ignore errors on console")
 
-Section:NewButton("Phase 1", "Phase 1 Killstreak", function()
+Section:NewButton("10 Kills", "yes", function()
     local totalKills = 10
     local killsToGive = 1
 
@@ -53,7 +53,7 @@ Section:NewButton("Phase 1", "Phase 1 Killstreak", function()
     end
 end)
 
-Section:NewButton("Phase 2", "Phase 2 Killstreak", function()
+Section:NewButton("25 kills", "yes", function()
     local totalKills = 25
     local killsToGive = 1
 
@@ -66,7 +66,7 @@ Section:NewButton("Phase 2", "Phase 2 Killstreak", function()
     end
 end)
 
-Section:NewButton("Phase 3", "Phase 3 Killstreak", function()
+Section:NewButton("50 kills", "yes", function()
     local totalKills = 50
     local killsToGive = 1
 
@@ -79,7 +79,7 @@ Section:NewButton("Phase 3", "Phase 3 Killstreak", function()
     end
 end)
 
-Section:NewButton("Phase 4", "Phase 4 Killstreak", function()
+Section:NewButton("75 kills", "yes", function()
     local totalKills = 75
     local killsToGive = 1
 
@@ -92,7 +92,7 @@ Section:NewButton("Phase 4", "Phase 4 Killstreak", function()
     end
 end)
 
-Section:NewButton("Phase 5", "Phase 5 Killstreak", function()
+Section:NewButton("100 kills", "yes", function()
     local totalKills = 100
     local killsToGive = 1
 
@@ -105,7 +105,7 @@ Section:NewButton("Phase 5", "Phase 5 Killstreak", function()
     end
 end)
 
-Section:NewButton("Phase 6", "Phase 6 Killstreak", function()
+Section:NewButton("200 kills", "yes", function()
     local totalKills = 200
     local killsToGive = 1
 
@@ -118,7 +118,7 @@ Section:NewButton("Phase 6", "Phase 6 Killstreak", function()
     end
 end)
 
-Section:NewButton("Phase 7", "Phase 7 Killstreak", function()
+Section:NewButton("250 kills", "YES", function()
     local totalKills = 250
     local killsToGive = 1
 
