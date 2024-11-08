@@ -1,0 +1,196 @@
+local colors = {
+    SchemeColor = Color3.fromRGB(87, 88, 87),
+    Background = Color3.fromRGB(0, 0, 0),
+    Header = Color3.fromRGB(15, 15, 15),
+    TextColor = Color3.fromRGB(255, 255, 255),
+    ElementColor = Color3.fromRGB(10, 10, 10)
+}
+print("executed gui enjoy!")
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Lackos slap battle GUI", colors)
+
+-- Modifiers
+local Tab = Window:NewTab("Modifiers")
+local Section = Tab:NewSection("Walkspeed and Jumppower")
+
+Section:NewSlider("Speed", "Changes your walkspeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section:NewSlider("JumpPower", "Changes your jumppower", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s -- Fixed property name
+end)
+
+Section:NewButton("TP To Lobby", "Teleports you to the lobby", function()
+    local player = game.Players.LocalPlayer
+    local teleportPart = game.Workspace:FindFirstChild("Lobby"):FindFirstChild("SpawnLocation") -- Ensure proper part path
+
+    local function teleportPlayer()
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = teleportPart.CFrame + Vector3.new(0, 5, 0) -- Teleport above the part
+        end
+    end
+
+    teleportPlayer()
+end)
+
+-- OP Stuff --
+local Tab = Window:NewTab("OP Stuff")
+local Section = Tab:NewSection("Killstreak")
+local Section = Tab:NewSection("ignore errors on console")
+
+Section:NewButton("Phase 1", "Phase 1 Killstreak", function()
+    local totalKills = 10
+    local killsToGive = 1
+
+    for i = 1, totalKills do
+        local args = {
+            killsToGive
+        }
+        game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
+        wait(0)
+    end
+end)
+
+Section:NewButton("Phase 2", "Phase 2 Killstreak", function()
+    local totalKills = 25
+    local killsToGive = 1
+
+    for i = 1, totalKills do
+        local args = {
+            killsToGive
+        }
+        game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
+        wait(0)
+    end
+end)
+
+Section:NewButton("Phase 3", "Phase 3 Killstreak", function()
+    local totalKills = 50
+    local killsToGive = 1
+
+    for i = 1, totalKills do
+        local args = {
+            killsToGive
+        }
+        game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
+        wait(0)
+    end
+end)
+
+Section:NewButton("Phase 4", "Phase 4 Killstreak", function()
+    local totalKills = 75
+    local killsToGive = 1
+
+    for i = 1, totalKills do
+        local args = {
+            killsToGive
+        }
+        game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
+        wait(0)
+    end
+end)
+
+Section:NewButton("Phase 5", "Phase 5 Killstreak", function()
+    local totalKills = 100
+    local killsToGive = 1
+
+    for i = 1, totalKills do
+        local args = {
+            killsToGive
+        }
+        game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
+        wait(0)
+    end
+end)
+
+Section:NewButton("Phase 6", "Phase 6 Killstreak", function()
+    local totalKills = 200
+    local killsToGive = 1
+
+    for i = 1, totalKills do
+        local args = {
+            killsToGive
+        }
+        game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
+        wait(0)
+    end
+end)
+
+Section:NewButton("Phase 7", "Phase 7 Killstreak", function()
+    local totalKills = 250
+    local killsToGive = 1
+
+    for i = 1, totalKills do
+        local args = {
+            killsToGive
+        }
+        game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
+        wait(0)
+    end
+end)
+
+Section:NewButton("Get a kill", "gives a kill", function()
+    local args = {}
+    game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
+end)
+
+local Section = Tab:NewSection("Admin stuff")
+
+Section:NewButton("Admin UI", "works on yourself only except for ban", function()
+    local player = game.Players.LocalPlayer
+    local adminUI = player.PlayerGui:FindFirstChild("AdminUI")
+
+    if adminUI then
+        adminUI.Enabled = true
+        
+        local isAdminValue = adminUI:FindFirstChild("IsAdmin")
+        if isAdminValue and isAdminValue:IsA("BoolValue") then
+            isAdminValue.Value = true
+        else
+            warn("IsAdmin BoolValue not found in AdminUI")
+        end
+        
+        local button = adminUI:FindFirstChild("Button")
+        if button then
+            button.Visible = true
+        else
+            warn("Button not found in AdminUI")
+        end
+    else
+        warn("AdminUI not found")
+    end
+end)
+
+Section:NewButton("TimeStop", "obvious", function()
+local args = {}
+
+game:GetService("ReplicatedStorage").TimeStop:FireServer(unpack(args))
+wait(8)
+local player = game.Players.LocalPlayer
+local chr = player.character
+chr.HumanoidRootPart.Anchored = false
+chr:FindFirstChild("Left Arm").Anchored = false
+chr:FindFirstChild("Right Arm").Anchored = false
+chr:FindFirstChild("Left Leg").Anchored = false
+chr:FindFirstChild("Right Leg").Anchored = false
+chr:FindFirstChild("Head").Anchored = false
+chr:FindFirstChild("LA").Anchored = false
+chr:FindFirstChild("LL").Anchored = false
+chr:FindFirstChild("RA").Anchored = false
+chr:FindFirstChild("RL").Anchored = false
+chr:FindFirstChild("Torso").Anchored = false
+end)
+
+Section:NewButton("Spawn Flight orb", "spawns an orb", function()
+local args = {}
+
+game:GetService("ReplicatedStorage").SpawnOrb:FireServer(unpack(args))
+end)
+
+Section:NewButton("God mode", "invincibility", function()
+local args = {}
+
+game:GetService("ReplicatedStorage").Invincible:FireServer(unpack(args))
+end)
