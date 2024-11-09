@@ -194,3 +194,19 @@ local args = {}
 
 game:GetService("ReplicatedStorage").Invincible:FireServer(unpack(args))
 end)
+
+Section:NewButton("Unanchor yourself (Use against time stop)", "obvious", function()
+	local player = game.Players.LocalPlayer
+local chr = player.character
+chr.HumanoidRootPart.Anchored = false
+chr:FindFirstChild("Left Arm").Anchored = false
+chr:FindFirstChild("Right Arm").Anchored = false
+chr:FindFirstChild("Left Leg").Anchored = false
+chr:FindFirstChild("Right Leg").Anchored = false
+chr:FindFirstChild("Head").Anchored = false
+chr:FindFirstChild("LA").Anchored = false
+chr:FindFirstChild("LL").Anchored = false
+chr:FindFirstChild("RA").Anchored = false
+chr:FindFirstChild("RL").Anchored = false
+chr:FindFirstChild("Torso").Anchored = false
+end)
