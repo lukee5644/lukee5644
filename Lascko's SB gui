@@ -169,7 +169,7 @@ local args = {}
 game:GetService("ReplicatedStorage").TimeStop:FireServer(unpack(args))
 wait(8)
 local player = game.Players.LocalPlayer
-local chr = player.character
+local chr = player.Character
 chr.HumanoidRootPart.Anchored = false
 chr:FindFirstChild("Left Arm").Anchored = false
 chr:FindFirstChild("Right Arm").Anchored = false
@@ -197,7 +197,7 @@ end)
 
 Section:NewButton("Unanchor yourself (Use against time stop)", "obvious", function()
 	local player = game.Players.LocalPlayer
-local chr = player.character
+local chr = player.Character
 chr.HumanoidRootPart.Anchored = false
 chr:FindFirstChild("Left Arm").Anchored = false
 chr:FindFirstChild("Right Arm").Anchored = false
