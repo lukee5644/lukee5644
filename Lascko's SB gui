@@ -256,14 +256,6 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-	Name = "No touchey",
-	Callback = function()
-	local args = {}
-      	game:GetService("ReplicatedStorage").notouchey:FireServer(unpack(args))
-  	end    
-})
-
-Tab:AddButton({
 	Name = "God mode",
 	Callback = function()
 	local args = {}
