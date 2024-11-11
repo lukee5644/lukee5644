@@ -243,8 +243,23 @@ Tab:AddButton({
 	Name = "God's hand ability",
 	Callback = function()
 	local args = {}
-      	game:GetService("ReplicatedStorage").TimeStop:FireServer(unpack(args))
-  	end    
+
+game:GetService("ReplicatedStorage").TimeStop:FireServer(unpack(args))
+wait(7)
+local player = game.Players.LocalPlayer
+local chr = player.Character
+chr.HumanoidRootPart.Anchored = false
+chr:FindFirstChild("Left Arm").Anchored = false
+chr:FindFirstChild("Right Arm").Anchored = false
+chr:FindFirstChild("Left Leg").Anchored = false
+chr:FindFirstChild("Right Leg").Anchored = false
+chr:FindFirstChild("Head").Anchored = false
+chr:FindFirstChild("LA").Anchored = false
+chr:FindFirstChild("LL").Anchored = false
+chr:FindFirstChild("RA").Anchored = false
+chr:FindFirstChild("RL").Anchored = false
+chr:FindFirstChild("Torso").Anchored = false
+end    
 })
 
 Tab:AddButton({
@@ -261,6 +276,25 @@ Tab:AddButton({
 	local args = {}
       	game:GetService("ReplicatedStorage").Invincible:FireServer(unpack(args))
   	end    
+})
+
+Tab:AddButton({
+	Name = "Unfreeze yourself",
+	Callback = function()
+local player = game.Players.LocalPlayer
+local chr = player.Character
+chr.HumanoidRootPart.Anchored = false
+chr:FindFirstChild("Left Arm").Anchored = false
+chr:FindFirstChild("Right Arm").Anchored = false
+chr:FindFirstChild("Left Leg").Anchored = false
+chr:FindFirstChild("Right Leg").Anchored = false
+chr:FindFirstChild("Head").Anchored = false
+chr:FindFirstChild("LA").Anchored = false
+chr:FindFirstChild("LL").Anchored = false
+chr:FindFirstChild("RA").Anchored = false
+chr:FindFirstChild("RL").Anchored = false
+chr:FindFirstChild("Torso").Anchored = false
+end    
 })
 
 local Tab = Window:MakeTab({
