@@ -1,47 +1,39 @@
-local colors = {
-    SchemeColor = Color3.fromRGB(87, 88, 87),
-    Background = Color3.fromRGB(0, 0, 0),
-    Header = Color3.fromRGB(15, 15, 15),
-    TextColor = Color3.fromRGB(255, 255, 255),
-    ElementColor = Color3.fromRGB(10, 10, 10)
-}
-print("executed gui enjoy!")
+local uilibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kiet1308/tvkhub/main/rac"))()
+local windowz = uilibrary:CreateWindow("OP", "Lacko's slap battles", true)
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Lackos slap battle GUI", colors)
+local Page1 = windowz:CreatePage("Modifiers")
 
--- Modifiers
-local Tab = Window:NewTab("Modifiers")
-local Section = Tab:NewSection("Walkspeed and Jumppower")
 
-Section:NewSlider("Speed", "Changes your walkspeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+local Section1 = Page1:CreateSection("WS/JP and more")
+
+Section1:CreateSlider("Walkspeed", {Min = 16, Max = 500, DefaultValue = 30}, function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 end)
 
-Section:NewSlider("JumpPower", "Changes your jumppower", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s -- Fixed property name
+Section1:CreateSlider("JumpPower", {Min = 50, Max = 500, DefaultValue = 30}, function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 end)
 
-Section:NewButton("TP To Lobby", "Teleports you to the lobby", function()
-    local player = game.Players.LocalPlayer
-    local teleportPart = game.Workspace:FindFirstChild("Lobby"):FindFirstChild("SpawnLocation") -- Ensure proper part path
-
-    local function teleportPlayer()
-        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-            player.Character.HumanoidRootPart.CFrame = teleportPart.CFrame + Vector3.new(0, 5, 0) -- Teleport above the part
-        end
-    end
-
-    teleportPlayer()
+Section1:CreateButton("Anti-Void", function ()
+   local voidpart = Instance.new("Part")
+   voidpart.Parent = workspace
+   voidpart.Position = Vector3.new(-1503.54431, 1701.54309, -377.699615, 0, 1, -0, -1, 0, 0, 0, 0, 1)
+   voidpart.Size = Vector3.new(2048, 1, 2048)
+   voidpart.Transparency = 1
+   voidpart.Name = "anti-void"
+   voidpart.Anchored = true
 end)
 
--- OP Stuff --
-local Tab = Window:NewTab("OP Stuff")
-local Section = Tab:NewSection("Killstreak")
-local Section = Tab:NewSection("ignore errors on console")
+local Page1 = windowz:CreatePage("Killstreak")
+local Section1 = Page1:CreateSection("Ignore errors on console")
 
-Section:NewButton("10 Kills", "yes", function()
-    local totalKills = 10
+Section1:CreateButton("+1 kill", function ()
+	local args = {}
+	game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
+end)
+
+Section1:CreateButton("10 kills", function ()
+	    local totalKills = 10
     local killsToGive = 1
 
     for i = 1, totalKills do
@@ -49,12 +41,12 @@ Section:NewButton("10 Kills", "yes", function()
             killsToGive
         }
         game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
-        wait(0)
+        wait(0.01)
     end
 end)
 
-Section:NewButton("25 kills", "yes", function()
-    local totalKills = 25
+Section1:CreateButton("25 kills", function ()
+	    local totalKills = 25
     local killsToGive = 1
 
     for i = 1, totalKills do
@@ -62,12 +54,12 @@ Section:NewButton("25 kills", "yes", function()
             killsToGive
         }
         game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
-        wait(0)
+        wait(0.01)
     end
 end)
 
-Section:NewButton("50 kills", "yes", function()
-    local totalKills = 50
+Section1:CreateButton("50 kills", function ()
+	    local totalKills = 50
     local killsToGive = 1
 
     for i = 1, totalKills do
@@ -75,12 +67,12 @@ Section:NewButton("50 kills", "yes", function()
             killsToGive
         }
         game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
-        wait(0)
+        wait(0.01)
     end
 end)
 
-Section:NewButton("75 kills", "yes", function()
-    local totalKills = 75
+Section1:CreateButton("75 kills", function ()
+	    local totalKills = 75
     local killsToGive = 1
 
     for i = 1, totalKills do
@@ -88,12 +80,12 @@ Section:NewButton("75 kills", "yes", function()
             killsToGive
         }
         game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
-        wait(0)
+        wait(0.01)
     end
 end)
 
-Section:NewButton("100 kills", "yes", function()
-    local totalKills = 100
+Section1:CreateButton("100 kills", function ()
+	    local totalKills = 100
     local killsToGive = 1
 
     for i = 1, totalKills do
@@ -101,12 +93,12 @@ Section:NewButton("100 kills", "yes", function()
             killsToGive
         }
         game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
-        wait(0)
+        wait(0.01)
     end
 end)
 
-Section:NewButton("200 kills", "yes", function()
-    local totalKills = 200
+Section1:CreateButton("200 kills", function ()
+	    local totalKills = 200
     local killsToGive = 1
 
     for i = 1, totalKills do
@@ -114,12 +106,12 @@ Section:NewButton("200 kills", "yes", function()
             killsToGive
         }
         game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
-        wait(0)
+        wait(0.01)
     end
 end)
 
-Section:NewButton("250 kills", "YES", function()
-    local totalKills = 250
+Section1:CreateButton("250 kills", function ()
+	    local totalKills = 250
     local killsToGive = 1
 
     for i = 1, totalKills do
@@ -127,19 +119,15 @@ Section:NewButton("250 kills", "YES", function()
             killsToGive
         }
         game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
-        wait(0)
+        wait(0.01)
     end
 end)
 
-Section:NewButton("Get a kill", "gives a kill", function()
-    local args = {}
-    game:GetService("ReplicatedStorage").givekill:FireServer(unpack(args))
-end)
+local Page1 = windowz:CreatePage("Admin Stuff")
+local Section1 = Page1:CreateSection("VERY OP")
 
-local Section = Tab:NewSection("Admin stuff")
-
-Section:NewButton("Admin UI", "works on yourself only except for ban", function()
-    local player = game.Players.LocalPlayer
+Section1:CreateButton("Admin UI", function ()
+	    local player = game.Players.LocalPlayer
     local adminUI = player.PlayerGui:FindFirstChild("AdminUI")
 
     if adminUI then
@@ -163,11 +151,11 @@ Section:NewButton("Admin UI", "works on yourself only except for ban", function(
     end
 end)
 
-Section:NewButton("TimeStop", "obvious", function()
-local args = {}
+Section1:CreateButton("God's hand ability", function ()
+	local args = {}
 
 game:GetService("ReplicatedStorage").TimeStop:FireServer(unpack(args))
-wait(8)
+wait(7)
 local player = game.Players.LocalPlayer
 local chr = player.Character
 chr.HumanoidRootPart.Anchored = false
@@ -183,20 +171,20 @@ chr:FindFirstChild("RL").Anchored = false
 chr:FindFirstChild("Torso").Anchored = false
 end)
 
-Section:NewButton("Spawn Flight orb", "spawns an orb", function()
-local args = {}
+Section1:CreateButton("Spawn flight orb", function ()
+	local args = {}
 
-game:GetService("ReplicatedStorage").SpawnOrb:FireServer(unpack(args))
+	game:GetService("ReplicatedStorage").SpawnOrb:FireServer(unpack(args))
 end)
 
-Section:NewButton("God mode", "invincibility", function()
-local args = {}
+Section1:CreateButton("Godmode", function ()
+	local args = {}
 
-game:GetService("ReplicatedStorage").Invincible:FireServer(unpack(args))
+	game:GetService("ReplicatedStorage").Invincible:FireServer(unpack(args))
 end)
 
-Section:NewButton("Unanchor yourself (Use against time stop)", "obvious", function()
-	local player = game.Players.LocalPlayer
+Section1:CreateButton("UnFreeze yourself", function ()
+		local player = game.Players.LocalPlayer
 local chr = player.Character
 chr.HumanoidRootPart.Anchored = false
 chr:FindFirstChild("Left Arm").Anchored = false
@@ -211,18 +199,17 @@ chr:FindFirstChild("RL").Anchored = false
 chr:FindFirstChild("Torso").Anchored = false
 end)
 
-local Tab = Window:NewTab("Scripts")
+local Page1 = windowz:CreatePage("Scripts")
+local Section1 = Page1:CreateSection("GREAT SCRIPTS")
 
-local Section = Tab:NewSection("GREAT SCRIPTS")
-
-Section:NewButton("Infinite yield", "very cool admin script", function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+Section1:CreateButton("Infinite yield", function ()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
 
-Section:NewButton("Turtle spy", "removeevent script", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MirayXS/scripts-4/refs/heads/main/TurtleSpy.lua",true))()
+Section1:CreateButton("ESP script", function ()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobCheatEngine.lua",true))()
 end)
 
-Section:NewButton("ESP Script", "yes you heard that right", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobCheatEngine.lua",true))()
+Section1:CreateButton("Turtle Spy", function ()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/MirayXS/scripts-4/refs/heads/main/TurtleSpy.lua",true))()
 end)
