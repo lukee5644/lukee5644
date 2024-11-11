@@ -210,3 +210,19 @@ chr:FindFirstChild("RA").Anchored = false
 chr:FindFirstChild("RL").Anchored = false
 chr:FindFirstChild("Torso").Anchored = false
 end)
+
+local Tab = Window:NewTab("Scripts")
+
+local Section = Tab:NewSection("GREAT SCRIPTS")
+
+Section:NewButton("Infinite yield", "very cool admin script", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+Section:NewButton("Turtle spy", "removeevent script", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MirayXS/scripts-4/refs/heads/main/TurtleSpy.lua",true))()
+end)
+
+Section:NewButton("ESP Script", "yes you heard that right", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobCheatEngine.lua",true))()
+end)
