@@ -1,5 +1,5 @@
 print("executed gui")
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Slendyvn/Draggable/refs/heads/main/Draggable')))()
 local Window = OrionLib:MakeWindow({Name = "Lacko's slap battle gui | By NDLgeneral", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 OrionLib:MakeNotification({
 	Name = "Notification!",
