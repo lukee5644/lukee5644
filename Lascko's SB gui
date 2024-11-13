@@ -16,18 +16,36 @@ local Tab = Window:MakeTab({
 local Section = Tab:AddSection({
 	Name = "WS/JP and more"
 })
-Tab:AddButton({
-	Name = "Anti-Void (PERM)",
-	Callback = function()
-      	 local voidpart = Instance.new("Part")
-   		voidpart.Parent = workspace
-   		voidpart.Position = Vector3.new(-1503.54431, 1701.54309, -377.699615, 0, 1, -0, -1, 0, 0, 0, 0, 1)
-  		 voidpart.Size = Vector3.new(2048, 1, 2048)
-  		 voidpart.Transparency = 1
-  		 voidpart.Name = "anti-void"
-  		 voidpart.Anchored = true
-  	end    
+
+-- here comes chatgpt
+
+local antiVoidPart = nil  -- Variable to store the anti-void part
+
+Tab:AddToggle({
+    Name = "Anti-Void",
+    Default = false,  -- Default state is off
+    Callback = function(Value)
+        if Value then
+            -- If toggle is ON, create the anti-void part
+            if not antiVoidPart then
+                antiVoidPart = Instance.new("Part")
+                antiVoidPart.Parent = workspace
+                antiVoidPart.Position = Vector3.new(-1503.54431, 1701.54309, -377.699615)  -- Corrected to 3 values
+                antiVoidPart.Size = Vector3.new(2048, 1, 2048)
+                antiVoidPart.Transparency = 1
+                antiVoidPart.Name = "anti-void"
+                antiVoidPart.Anchored = true
+            end
+        else
+            -- If toggle is OFF, remove the anti-void part if it exists
+            if antiVoidPart then
+                antiVoidPart:Destroy()
+                antiVoidPart = nil
+            end
+        end
+    end
 })
+
 
 Tab:AddButton({
     Name = "TP To lobby",
@@ -326,3 +344,18 @@ Tab:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/MirayXS/scripts-4/refs/heads/main/TurtleSpy.lua",true))()
   	end    
 })
+
+local Tab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section = Tab:AddSection({
+	Name = "ChatGPT for making the Anti-void toggle"
+})
+
+local Section = Tab:AddSection({
+	Name = "NDLgeneral for making everything"
+})
+
+OrionLib:Init()
