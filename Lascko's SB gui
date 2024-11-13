@@ -346,6 +346,53 @@ Tab:AddButton({
 })
 
 local Tab = Window:MakeTab({
+	Name = "Glove abilities",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Only works on these gloves bc they have no anti-cheat"
+})
+
+local Section = Tab:AddSection({
+	Name = "Must hold glove to work"
+})
+
+Tab:AddButton({
+	Name = "Train Ability",
+	Callback = function()
+		local plr = game:GetService("Players").LocalPlayer
+		local chr = plr.Character or plr.CharacterAdded:Wait()
+		local event = chr.train.Event
+		local args = {}
+		event:FireServer(unpack(args))
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Clone() Ability",
+	Callback = function()
+		local plr = game:GetService("Players").LocalPlayer
+		local chr = plr.Character or plr.CharacterAdded:Wait()
+		local event = chr:FindFirstChild("Clone()").Event
+		local args = {}
+		event:FireServer(unpack(args))
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Witch Ability",
+	Callback = function()
+		local plr = game:GetService("Players").LocalPlayer
+		local chr = plr.Character or plr.CharacterAdded:Wait()
+		local event = chr:FindFirstChild("Witch").Event
+		local args = {}
+		event:FireServer(unpack(args))
+  	end    
+})
+
+local Tab = Window:MakeTab({
 	Name = "Credits",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
