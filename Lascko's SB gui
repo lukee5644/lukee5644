@@ -393,6 +393,20 @@ Tab:AddButton({
 })
 
 local Tab = Window:MakeTab({
+	Name = "Glove tutorials",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Guides on how to get gloves"
+})
+
+Tab:AddLabel("How to get Clone(): Play the game for 45 minutes")
+Tab:AddLabel("How to get train: Play the game for 2 hours")
+Tab:AddParagraph("How to get Witch","Get 25 kills and click the grave behind the tree near the cube of death")
+
+local Tab = Window:MakeTab({
 	Name = "Credits",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
