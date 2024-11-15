@@ -30,7 +30,7 @@ Tab:AddToggle({
             if not antiVoidPart then
                 antiVoidPart = Instance.new("Part")
                 antiVoidPart.Parent = workspace
-                antiVoidPart.Position = Vector3.new(-1503.54431, 1701.54309, -377.699615)  -- Corrected to 3 values
+                antiVoidPart.Position = Vector3.new(-1503.54431, 1692.54309, -377.699615)  -- Corrected to 3 values
                 antiVoidPart.Size = Vector3.new(2048, 1, 2048)
                 antiVoidPart.Transparency = 1
                 antiVoidPart.Name = "anti-void"
