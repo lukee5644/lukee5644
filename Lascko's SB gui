@@ -407,6 +407,21 @@ Tab:AddButton({
   	end    
 })
 
+Tab:AddButton({
+	Name = "Make giant killbrick with megarock glove",
+	Callback = function()
+		local plr = game:GetService("Players").LocalPlayer
+		local chr = plr.Character or plr.CharacterAdded:Wait()
+		local event = chr:FindFirstChild("Megarock").Event
+		local event2 = chr:FindFirstChild("Megarock").Event
+		local event3 = chr:FindFirstChild("Megarock").Event2
+		local args = {}
+		event:FireServer(unpack(args))
+		event2:FireServer(unpack(args))
+		event3:FireServer(unpack(args))
+  	end    
+})
+
 local Tab = Window:MakeTab({
 	Name = "Glove tutorials",
 	Icon = "rbxassetid://4483345998",
@@ -420,6 +435,7 @@ local Section = Tab:AddSection({
 Tab:AddLabel("How to get Clone(): Play the game for 45 minutes")
 Tab:AddLabel("How to get train: Play the game for 2 hours")
 Tab:AddParagraph("How to get Witch","Get 25 kills and click the grave behind the tree near the cube of death")
+Tab:AddParagraph("How to get Megarock","Be a rock using diamond for 20 minutes straight")
 
 local Tab = Window:MakeTab({
 	Name = "Credits",
