@@ -65,6 +65,21 @@ Tab:AddButton({
     end
 })
 
+Tab:AddButton({
+    Name = "TP To Arena",
+    Callback = function()
+        local plr = game.Players.LocalPlayer
+        local targetPosition = Vector3.new(-1503.54431, 1702.54309, -377.699615, 0, 1, -0, -1, 0, 0, 0, 0, 1)
+
+        if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+        else
+            warn("what is love?")
+        end
+    end
+})
+
+
 Tab:AddSlider({
 	Name = "Speed",
 	Min = 16,
