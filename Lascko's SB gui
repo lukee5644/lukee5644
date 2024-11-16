@@ -304,7 +304,7 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-	Name = "God mode",
+	Name = "Anti-slap",
 	Callback = function()
 	local args = {}
       	game:GetService("ReplicatedStorage").Invincible:FireServer(unpack(args))
