@@ -108,7 +108,7 @@ Tab:AddSlider({
 
 local Tab = Window:MakeTab({
 	Name = "Killstreak",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://10265614162",
 	PremiumOnly = false
 })
 local Section = Tab:AddSection({
@@ -237,7 +237,7 @@ end
 
 local Tab = Window:MakeTab({
 	Name = "Admin stuff",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://8909666888",
 	PremiumOnly = false
 })
 local Section = Tab:AddSection({
@@ -332,7 +332,7 @@ end
 
 local Tab = Window:MakeTab({
 	Name = "Scripts",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://3203186317",
 	PremiumOnly = false
 })
 local Section = Tab:AddSection({
@@ -362,7 +362,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({
 	Name = "Glove abilities",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://92289207499434",
 	PremiumOnly = false
 })
 
@@ -439,7 +439,7 @@ Tab:AddButton({
 
 local Tab = Window:MakeTab({
 	Name = "Glove tutorials",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://18398907653",
 	PremiumOnly = false
 })
 
@@ -454,7 +454,7 @@ Tab:AddParagraph("How to get Megarock","Be a rock using diamond for 20 minutes s
 
 local Tab = Window:MakeTab({
 	Name = "Credits",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://16109758001",
 	PremiumOnly = false
 })
 local Section = Tab:AddSection({
