@@ -361,7 +361,7 @@ Tab:AddButton({
 })
 
 local Tab = Window:MakeTab({
-	Name = "Glove abilities",
+	Name = "Glove Stuff",
 	Icon = "rbxassetid://92289207499434",
 	PremiumOnly = false
 })
@@ -434,6 +434,56 @@ Tab:AddButton({
 		event:FireServer(unpack(args))
 		event2:FireServer(unpack(args))
 		event3:FireServer(unpack(args))
+  	end    
+})
+
+local Section = Tab:AddSection({
+	Name = "Glove equip"
+})
+
+Tab:AddButton({
+	Name = "Equip killstreak",
+	Callback = function()
+		fireclickdetector(workspace.Lobby.SlapGloves.KillstreakGloveStand:GetChildren()[2].ClickDetector)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Equip Diamond",
+	Callback = function()
+		fireclickdetector(workspace.Lobby.SlapGloves.DiamondGloveStand.Diamond.ClickDetector)
+  	end    
+})
+
+local Section = Tab:AddSection({
+	Name = "Badge Gloves"
+})
+
+Tab:AddButton({
+	Name = "Equip Megarock",
+	Callback = function()
+		fireclickdetector(workspace.Lobby.BadgeGloves.MegarockStand.Megarock.ClickDetector)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Equip Clone()",
+	Callback = function()
+		fireclickdetector(workspace.Lobby.CloneStand:GetChildren()[2].ClickDetector)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Equip Train",
+	Callback = function()
+		fireclickdetector(workspace.Lobby.TrainGloveStand:GetChildren()[2].ClickDetector)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Equip Witch",
+	Callback = function()
+		fireclickdetector(workspace.WitchStand:GetChildren()[3].ClickDetector)
   	end    
 })
 
