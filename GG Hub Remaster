@@ -66,44 +66,28 @@ Section:NewToggle("Anti-Crash", "Disables Crash", function(state)
 end)
 
 -- Anti Mute Button
-Section:NewButton("Anti-mute", "Disables Mute", function()
+Section:NewButton("Anti-Mute", "Disables Mute", function()
     print("enabled anti mute")
 		repeat wait(0)
 		game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat,true)
 	until 0==1
 end)
 
-Section:NewTextBox("Banish user", "Banish users", function(txt)
-    local target = game.Players:FindFirstChild(txt) -- Find player by name
-
-    if target then
-        local success, errorMessage = pcall(function()
-            local args = {
-                [1] = ";ap " .. target.Name .. " inf"
-            }
-            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
-        end)
-
-        if not success then
-            game.StarterGui:SetCore("SendNotification", {
-                Title = "Error",
-                Text = errorMessage,
-                Duration = 6
-            })
+Section:NewTextBox("Crash user", "crash users", function(txt)
+    local function findPlayerByName(partialName)
+        local matches = {}
+        for _, player in pairs(game.Players:GetPlayers()) do
+            if string.lower(player.Name):find(string.lower(partialName), 1, true) then
+                table.insert(matches, player)
+            end
         end
-    else
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "Error",
-            Text = "Player not found!",
-            Duration = 6
-        })
+        return matches
     end
-end)
 
-Section:NewTextBox("Crash user", "Crash users", function(txt)
-    local target = game.Players:FindFirstChild(txt) -- Find player by name
+    local matches = findPlayerByName(txt)
 
-    if target then
+    if #matches == 1 then
+        local target = matches[1]
         local success, errorMessage = pcall(function()
             local args = {
                 [1] = ";crash " .. target.Name
@@ -118,6 +102,56 @@ Section:NewTextBox("Crash user", "Crash users", function(txt)
                 Duration = 6
             })
         end
+    elseif #matches > 1 then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Multiple players found! Please be more specific.",
+            Duration = 6
+        })
+    else
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Player not found!",
+            Duration = 6
+        })
+    end
+end)
+
+Section:NewTextBox("Banish user", "banish users", function(txt)
+    local function findPlayerByName(partialName)
+        local matches = {}
+        for _, player in pairs(game.Players:GetPlayers()) do
+            if string.lower(player.Name):find(string.lower(partialName), 1, true) then
+                table.insert(matches, player)
+            end
+        end
+        return matches
+    end
+
+    local matches = findPlayerByName(txt)
+
+    if #matches == 1 then
+        local target = matches[1]
+        local success, errorMessage = pcall(function()
+            local args = {
+                [1] = ";apparate " .. target.Name .. " 5680667182"
+            }
+            game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+        end)
+
+        if not success then
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "Error",
+                Text = errorMessage,
+                Duration = 6
+            })
+        end
+    elseif #matches > 1 then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Multiple players found! Please be more specific.",
+            Duration = 6
+        })
     else
         game.StarterGui:SetCore("SendNotification", {
             Title = "Error",
@@ -129,9 +163,20 @@ end)
 
 
 Section:NewTextBox("Forceplace user", "Forceplace users", function(txt)
-    local target = game.Players:FindFirstChild(txt) -- Find player by name
+    local function findPlayerByName(partialName)
+        local matches = {}
+        for _, player in pairs(game.Players:GetPlayers()) do
+            if string.lower(player.Name):find(string.lower(partialName), 1, true) then
+                table.insert(matches, player)
+            end
+        end
+        return matches
+    end
 
-    if target then
+    local matches = findPlayerByName(txt)
+
+    if #matches == 1 then
+        local target = matches[1]
         local success, errorMessage = pcall(function()
             local args = {
                 [1] = ";forceplace " .. target.Name .. " 5680667182"
@@ -146,6 +191,12 @@ Section:NewTextBox("Forceplace user", "Forceplace users", function(txt)
                 Duration = 6
             })
         end
+    elseif #matches > 1 then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Multiple players found! Please be more specific.",
+            Duration = 6
+        })
     else
         game.StarterGui:SetCore("SendNotification", {
             Title = "Error",
@@ -155,20 +206,32 @@ Section:NewTextBox("Forceplace user", "Forceplace users", function(txt)
     end
 end)
 
-Section:NewTextBox("Black screen user", "black screen users", function(txt)
-    local target = game.Players:FindFirstChild(txt) -- Find player by name
 
-    if target then
+Section:NewTextBox("Blackscreen user", "blackscreen users", function(txt)
+    local function findPlayerByName(partialName)
+        local matches = {}
+        for _, player in pairs(game.Players:GetPlayers()) do
+            if string.lower(player.Name):find(string.lower(partialName), 1, true) then
+                table.insert(matches, player)
+            end
+        end
+        return matches
+    end
+
+    local matches = findPlayerByName(txt)
+
+    if #matches == 1 then
+        local target = matches[1]
         local success, errorMessage = pcall(function()
             local args = {
                 [1] = ";speed " .. target.Name .. " inf"
             }
             game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
-		end)
-	        local args = {
-                [1] = ";warp " .. target.Name
+			local args = {
+			    [1] = ";warp " .. target.Name
             }
             game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
+        end)
 
         if not success then
             game.StarterGui:SetCore("SendNotification", {
@@ -177,6 +240,12 @@ Section:NewTextBox("Black screen user", "black screen users", function(txt)
                 Duration = 6
             })
         end
+    elseif #matches > 1 then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Multiple players found! Please be more specific.",
+            Duration = 6
+        })
     else
         game.StarterGui:SetCore("SendNotification", {
             Title = "Error",
@@ -199,9 +268,9 @@ local Section = Tab:NewSection("Server stuff")
 local isRunning = false
 local connection
 
-Section:NewToggle("Server crash", "server Crash", function(state)
+Section:NewToggle("Server lagger", "server lag", function(state)
     if state then
-	print("enabled server crasher")
+	print("enabled server lagger")
     isRunning = true
 
 	connection = game:GetService("RunService").Stepped:Connect(function()
@@ -427,6 +496,6 @@ end)
 local Tab = Window:NewTab("Credits")
 local Section = Tab:NewSection("cool credits")
 
-Section:NewLabel("bbb908 for making most of the stuff")
+Section:NewLabel("bbb908#1413 for making most of the stuff")
 Section:NewLabel("like anti-mute and others")
 Section:NewLabel("GG Hub server: bP7X9HsH")
