@@ -284,7 +284,7 @@ Section:NewToggle("Server lagger", "server lag", function(state)
 	end
 end)
 else
-	print("Disabled server crasher")
+	print("Disabled server lagger")
 	isRunning = false
 	if connection then
 		connection:Disconnect()
@@ -436,10 +436,21 @@ Section:NewButton("Rainbow sword", "gives u a gear", function()
 	game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args))
 end)
 
-Section:NewTextBox("Give a player btools", "give users btools", function(txt)
-    local target = game.Players:FindFirstChild(txt) -- Find player by name
+Section:NewTextBox("Give a player btools", "btools users", function(txt)
+    local function findPlayerByName(partialName)
+        local matches = {}
+        for _, player in pairs(game.Players:GetPlayers()) do
+            if string.lower(player.Name):find(string.lower(partialName), 1, true) then
+                table.insert(matches, player)
+            end
+        end
+        return matches
+    end
 
-    if target then
+    local matches = findPlayerByName(txt)
+
+    if #matches == 1 then
+        local target = matches[1]
         local success, errorMessage = pcall(function()
             local args = {
                 [1] = ";btools " .. target.Name
@@ -454,6 +465,12 @@ Section:NewTextBox("Give a player btools", "give users btools", function(txt)
                 Duration = 6
             })
         end
+    elseif #matches > 1 then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Multiple players found! Please be more specific.",
+            Duration = 6
+        })
     else
         game.StarterGui:SetCore("SendNotification", {
             Title = "Error",
