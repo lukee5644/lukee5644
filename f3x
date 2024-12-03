@@ -1,0 +1,5 @@
+-- F3X
+local args = {
+[1] = ";btools"
+}
+game:GetService("ReplicatedStorage").HDAdminClient.Signals.RequestCommand:InvokeServer(unpack(args)
