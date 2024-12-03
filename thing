@@ -1,0 +1,67 @@
+local ReplicationGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+local Frame_3 = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+
+ReplicationGui.Name = "ReplicationGui"
+
+ReplicationGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+ReplicationGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ReplicationGui.ResetOnSpawn = false
+
+
+
+
+Frame_3.Parent = ReplicationGui
+
+Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+Frame_3.BackgroundTransparency = 1.000
+
+Frame_3.Position = UDim2.new(0, 0, 0.79919678, 0)
+
+Frame_3.Size = UDim2.new(0, 267, 0, 100)
+
+
+
+
+
+ImageLabel.Parent = Frame_3
+
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+ImageLabel.BackgroundTransparency = 1.000
+
+ImageLabel.Position = UDim2.new(0.0337078571, 0, 0.227877513, 0)
+
+ImageLabel.Size = UDim2.new(0, 50, 0, 54)
+
+ImageLabel.Image = "rbxassetid://8388262491"
+
+
+
+TextLabel.Parent = Frame_3
+
+TextLabel.BackgroundColor3 = Color3.fromRGB(76, 76, 76)
+
+TextLabel.BorderColor3 = Color3.fromRGB(76, 76, 76)
+
+TextLabel.BorderSizePixel = 2
+
+TextLabel.Position = UDim2.new(0.258426964, 0, 0.25999999, 0)
+
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+
+TextLabel.Font = Enum.Font.Roboto
+
+TextLabel.Text = "Insanity's Menu by ins4no, 1sw0rd1\nExecute HD Admin/F3X Scripts\nVersion: 2.5 Commands: 160"
+
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel.TextScaled = true
+
+TextLabel.TextSize = 14.000
+
+TextLabel.TextWrapped = true
