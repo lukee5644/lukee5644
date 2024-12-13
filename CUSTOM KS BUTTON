@@ -1,0 +1,220 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 17 | Scripts: 4 | Modules: 0 | Tags: 0
+local G2L = {};
+
+-- StarterGui.KSButton
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["Name"] = [[KSButton]];
+G2L["1"]["ResetOnSpawn"] = false;
+
+
+-- StarterGui.KSButton.ImageButton
+G2L["2"] = Instance.new("ImageButton", G2L["1"]);
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2"]["Image"] = [[http://www.roblox.com/asset/?id=16564812826]];
+G2L["2"]["Size"] = UDim2.new(0.09529, 0, 0.10417, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Position"] = UDim2.new(0.89005, 0, 0.23397, 0);
+
+
+-- StarterGui.KSButton.ImageButton.UIStroke
+G2L["3"] = Instance.new("UIStroke", G2L["2"]);
+G2L["3"]["Thickness"] = 4;
+
+
+-- StarterGui.KSButton.ImageButton.LocalScript
+G2L["4"] = Instance.new("LocalScript", G2L["2"]);
+
+
+
+-- StarterGui.KSButton.Frame
+G2L["5"] = Instance.new("Frame", G2L["1"]);
+G2L["5"]["Visible"] = false;
+G2L["5"]["BorderSizePixel"] = 0;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(80, 0, 0);
+G2L["5"]["Size"] = UDim2.new(0.21571, 0, 0.40385, 0);
+G2L["5"]["Position"] = UDim2.new(0.62777, 0, 0.08333, 0);
+G2L["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.KSButton.Frame.UIStroke
+G2L["6"] = Instance.new("UIStroke", G2L["5"]);
+G2L["6"]["Thickness"] = 4;
+
+
+-- StarterGui.KSButton.Frame.TextButton
+G2L["7"] = Instance.new("TextButton", G2L["5"]);
+G2L["7"]["TextWrapped"] = true;
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["TextSize"] = 14;
+G2L["7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7"]["TextScaled"] = true;
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(54, 0, 0);
+G2L["7"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["7"]["Size"] = UDim2.new(0.68447, 0, 0.19841, 0);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["Text"] = [[Give yourself +1 kill]];
+G2L["7"]["Position"] = UDim2.new(0.15534, 0, 0.17063, 0);
+
+
+-- StarterGui.KSButton.Frame.TextButton.UICorner
+G2L["8"] = Instance.new("UICorner", G2L["7"]);
+
+
+
+-- StarterGui.KSButton.Frame.TextButton.LocalScript
+G2L["9"] = Instance.new("LocalScript", G2L["7"]);
+
+
+
+-- StarterGui.KSButton.Frame.TextButton.UITextSizeConstraint
+G2L["a"] = Instance.new("UITextSizeConstraint", G2L["7"]);
+G2L["a"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.KSButton.Frame.TextButton
+G2L["b"] = Instance.new("TextButton", G2L["5"]);
+G2L["b"]["TextWrapped"] = true;
+G2L["b"]["BorderSizePixel"] = 0;
+G2L["b"]["TextSize"] = 14;
+G2L["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b"]["TextScaled"] = true;
+G2L["b"]["BackgroundColor3"] = Color3.fromRGB(54, 0, 0);
+G2L["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["b"]["Size"] = UDim2.new(0.68447, 0, 0.38889, 0);
+G2L["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b"]["Text"] = [[Give a person +1 kill]];
+G2L["b"]["Position"] = UDim2.new(0.15534, 0, 0.40476, 0);
+
+
+-- StarterGui.KSButton.Frame.TextButton.UICorner
+G2L["c"] = Instance.new("UICorner", G2L["b"]);
+
+
+
+-- StarterGui.KSButton.Frame.TextButton.LocalScript
+G2L["d"] = Instance.new("LocalScript", G2L["b"]);
+
+
+
+-- StarterGui.KSButton.Frame.TextButton.UITextSizeConstraint
+G2L["e"] = Instance.new("UITextSizeConstraint", G2L["b"]);
+G2L["e"]["MaxTextSize"] = 72;
+
+
+-- StarterGui.KSButton.Frame.TextBox
+G2L["f"] = Instance.new("TextBox", G2L["5"]);
+G2L["f"]["CursorPosition"] = -1;
+G2L["f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["f"]["BorderSizePixel"] = 0;
+G2L["f"]["TextWrapped"] = true;
+G2L["f"]["TextSize"] = 14;
+G2L["f"]["TextScaled"] = true;
+G2L["f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["f"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["f"]["Size"] = UDim2.new(0.79126, 0, 0.11905, 0);
+G2L["f"]["Position"] = UDim2.new(0.10194, 0, 0.82143, 0);
+G2L["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["f"]["Text"] = [[Type here]];
+
+
+-- StarterGui.KSButton.Frame.TextBox.UITextSizeConstraint
+G2L["10"] = Instance.new("UITextSizeConstraint", G2L["f"]);
+G2L["10"]["MaxTextSize"] = 30;
+
+
+-- StarterGui.KSButton.Frame.LocalScript
+G2L["11"] = Instance.new("LocalScript", G2L["5"]);
+
+
+
+-- StarterGui.KSButton.ImageButton.LocalScript
+local function C_4()
+local script = G2L["4"];
+	local b = script.Parent
+	local f = script.Parent.Parent.Frame
+	b.Activated:Connect(function()
+		f.Visible = not f.Visible
+	end)
+end;
+task.spawn(C_4);
+-- StarterGui.KSButton.Frame.TextButton.LocalScript
+local function C_9()
+local script = G2L["9"];
+	local b = script.Parent
+	local give = game.ReplicatedStorage.givekill
+	b.Activated:Connect(function()
+		give:FireServer(game.Players.LocalPlayer.Character)
+	end)
+end;
+task.spawn(C_9);
+-- StarterGui.KSButton.Frame.TextButton.LocalScript
+local function C_d()
+local script = G2L["d"];
+	local button = script.Parent
+	local textBox = script.Parent.Parent.TextBox
+	local giveKillEvent = game.ReplicatedStorage:WaitForChild("givekill")
+	
+	button.Activated:Connect(function()
+		local playerName = textBox.Text
+		local player = game.Players:FindFirstChild(playerName)
+	
+		if player then
+			giveKillEvent:FireServer(player.Character)
+		else
+			warn("Player not found: " .. playerName)
+		end
+	end)
+	
+end;
+task.spawn(C_d);
+-- StarterGui.KSButton.Frame.LocalScript
+local function C_11()
+local script = G2L["11"];
+	local frame = script.Parent
+	
+	local UserInputService = game:GetService("UserInputService")
+	local dragging = false
+	local dragStart = nil
+	local startPos = nil
+	
+	-- Function to start dragging
+	local function startDrag(input)
+		if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = true
+			dragStart = input.Position
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end
+	
+	-- Function to update the position of the frame while dragging
+	local function updateDrag(input)
+		if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement) then
+			local delta = (input.Position - dragStart)
+			frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		end
+	end
+	
+	-- Connect touch and mouse events
+	frame.InputBegan:Connect(startDrag)
+	UserInputService.InputChanged:Connect(updateDrag)
+	
+end;
+task.spawn(C_11);
+
+return G2L["1"], require;
