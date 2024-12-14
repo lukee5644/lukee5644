@@ -1,0 +1,1647 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 3 | Scripts: 1 | Modules: 0 | Tags: 0
+local G2L = {};
+
+-- StarterGui.AdminAbility
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["IgnoreGuiInset"] = true;
+G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+G2L["1"]["Name"] = [[AdminAbility]];
+G2L["1"]["ResetOnSpawn"] = false;
+
+
+-- StarterGui.AdminAbility.ImageButton
+G2L["2"] = Instance.new("ImageButton", G2L["1"]);
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2"]["Image"] = [[http://www.roblox.com/asset/?id=585445238]];
+G2L["2"]["Size"] = UDim2.new(0.10471, 0, 0.16026, 0);
+G2L["2"]["BackgroundTransparency"] = 0.5;
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Position"] = UDim2.new(0.60519, 0, 0.39161, 0);
+
+
+-- StarterGui.AdminAbility.ImageButton.LocalScript
+G2L["3"] = Instance.new("LocalScript", G2L["2"]);
+
+
+
+-- StarterGui.AdminAbility.ImageButton.LocalScript
+local function C_3()
+local script = G2L["3"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game:GetService("Players").LocalPlayer.Equipped
+		}
+		game:GetService("ReplicatedStorage").AbiliyEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_3);
+
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 89 | Scripts: 17 | Modules: 0 | Tags: 0
+local G2L = {};
+
+-- StarterGui.AdminGloves
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["Name"] = [[AdminGloves]];
+G2L["1"]["ResetOnSpawn"] = false;
+
+
+-- StarterGui.AdminGloves.Frame
+G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"]["Visible"] = false;
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(76, 76, 76);
+G2L["2"]["Size"] = UDim2.new(0.2814, 0, 0.77564, 0);
+G2L["2"]["Position"] = UDim2.new(0.09718, 0, 0.09455, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.AdminGloves.Frame.UIStroke
+G2L["3"] = Instance.new("UIStroke", G2L["2"]);
+G2L["3"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["3"]["Thickness"] = 5;
+G2L["3"]["Color"] = Color3.fromRGB(36, 36, 36);
+
+
+-- StarterGui.AdminGloves.Frame.TextLabel
+G2L["4"] = Instance.new("TextLabel", G2L["2"]);
+G2L["4"]["TextWrapped"] = true;
+G2L["4"]["Interactable"] = false;
+G2L["4"]["BorderSizePixel"] = 0;
+G2L["4"]["TextScaled"] = true;
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["TextSize"] = 14;
+G2L["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["BackgroundTransparency"] = 1;
+G2L["4"]["Size"] = UDim2.new(0.98305, 0, 0.10331, 0);
+G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4"]["Text"] = [[Admin Gloves setter]];
+
+
+-- StarterGui.AdminGloves.Frame.TextLabel.UITextSizeConstraint
+G2L["5"] = Instance.new("UITextSizeConstraint", G2L["4"]);
+G2L["5"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.LocalScript
+G2L["6"] = Instance.new("LocalScript", G2L["2"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame
+G2L["7"] = Instance.new("ScrollingFrame", G2L["2"]);
+G2L["7"]["Active"] = true;
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["CanvasPosition"] = Vector2.new(0, 426.38391);
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(107, 107, 107);
+G2L["7"]["Size"] = UDim2.new(0.92938, 0, 0.84917, 0);
+G2L["7"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["Position"] = UDim2.new(0.03672, 0, 0.10331, 0);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["8"] = Instance.new("TextButton", G2L["7"]);
+G2L["8"]["TextWrapped"] = true;
+G2L["8"]["BorderSizePixel"] = 0;
+G2L["8"]["TextSize"] = 14;
+G2L["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["8"]["TextScaled"] = true;
+G2L["8"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["8"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["8"]["Name"] = [[button]];
+G2L["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8"]["Text"] = [[Clone()]];
+G2L["8"]["Position"] = UDim2.new(-0.00757, 0, 0.01845, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["9"] = Instance.new("UICorner", G2L["8"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["a"] = Instance.new("LocalScript", G2L["8"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["b"] = Instance.new("UIAspectRatioConstraint", G2L["8"]);
+G2L["b"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["c"] = Instance.new("UITextSizeConstraint", G2L["8"]);
+G2L["c"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["d"] = Instance.new("TextButton", G2L["7"]);
+G2L["d"]["TextWrapped"] = true;
+G2L["d"]["BorderSizePixel"] = 0;
+G2L["d"]["TextSize"] = 14;
+G2L["d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["d"]["TextScaled"] = true;
+G2L["d"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["d"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["d"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["d"]["Name"] = [[button]];
+G2L["d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["d"]["Text"] = [[BOBBLE]];
+G2L["d"]["Position"] = UDim2.new(-0.00757, 0, 0.0955, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["e"] = Instance.new("UICorner", G2L["d"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["f"] = Instance.new("LocalScript", G2L["d"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["10"] = Instance.new("UIAspectRatioConstraint", G2L["d"]);
+G2L["10"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["11"] = Instance.new("UITextSizeConstraint", G2L["d"]);
+G2L["11"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["12"] = Instance.new("TextButton", G2L["7"]);
+G2L["12"]["TextWrapped"] = true;
+G2L["12"]["BorderSizePixel"] = 0;
+G2L["12"]["TextSize"] = 14;
+G2L["12"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["12"]["TextScaled"] = true;
+G2L["12"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["12"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["12"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["12"]["Name"] = [[button]];
+G2L["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["12"]["Text"] = [[TABLE]];
+G2L["12"]["Position"] = UDim2.new(-0.00149, 0, 0.16847, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["13"] = Instance.new("UICorner", G2L["12"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["14"] = Instance.new("LocalScript", G2L["12"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["15"] = Instance.new("UIAspectRatioConstraint", G2L["12"]);
+G2L["15"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["16"] = Instance.new("UITextSizeConstraint", G2L["12"]);
+G2L["16"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["17"] = Instance.new("TextButton", G2L["7"]);
+G2L["17"]["TextWrapped"] = true;
+G2L["17"]["BorderSizePixel"] = 0;
+G2L["17"]["TextSize"] = 14;
+G2L["17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["17"]["TextScaled"] = true;
+G2L["17"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["17"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["17"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["17"]["Name"] = [[button]];
+G2L["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["17"]["Text"] = [[sus]];
+G2L["17"]["Position"] = UDim2.new(-0.00149, 0, 0.24559, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["18"] = Instance.new("UICorner", G2L["17"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["19"] = Instance.new("LocalScript", G2L["17"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["1a"] = Instance.new("UIAspectRatioConstraint", G2L["17"]);
+G2L["1a"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["1b"] = Instance.new("UITextSizeConstraint", G2L["17"]);
+G2L["1b"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["1c"] = Instance.new("TextButton", G2L["7"]);
+G2L["1c"]["TextWrapped"] = true;
+G2L["1c"]["BorderSizePixel"] = 0;
+G2L["1c"]["TextSize"] = 14;
+G2L["1c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1c"]["TextScaled"] = true;
+G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["1c"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["1c"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["1c"]["Name"] = [[button]];
+G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1c"]["Text"] = [[pim]];
+G2L["1c"]["Position"] = UDim2.new(-0.00149, 0, 0.31024, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["1d"] = Instance.new("UICorner", G2L["1c"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["1e"] = Instance.new("LocalScript", G2L["1c"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["1f"] = Instance.new("UIAspectRatioConstraint", G2L["1c"]);
+G2L["1f"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["20"] = Instance.new("UITextSizeConstraint", G2L["1c"]);
+G2L["20"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["21"] = Instance.new("TextButton", G2L["7"]);
+G2L["21"]["TextWrapped"] = true;
+G2L["21"]["BorderSizePixel"] = 0;
+G2L["21"]["TextSize"] = 14;
+G2L["21"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["21"]["TextScaled"] = true;
+G2L["21"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["21"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["21"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["21"]["Name"] = [[button]];
+G2L["21"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["21"]["Text"] = [[edgelord]];
+G2L["21"]["Position"] = UDim2.new(-0.00757, 0, 0.3759, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["22"] = Instance.new("UICorner", G2L["21"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["23"] = Instance.new("LocalScript", G2L["21"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["24"] = Instance.new("UIAspectRatioConstraint", G2L["21"]);
+G2L["24"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["25"] = Instance.new("UITextSizeConstraint", G2L["21"]);
+G2L["25"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["26"] = Instance.new("TextButton", G2L["7"]);
+G2L["26"]["TextWrapped"] = true;
+G2L["26"]["BorderSizePixel"] = 0;
+G2L["26"]["TextSize"] = 14;
+G2L["26"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["26"]["TextScaled"] = true;
+G2L["26"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["26"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["26"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["26"]["Name"] = [[button]];
+G2L["26"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["26"]["Text"] = [[brazil]];
+G2L["26"]["Position"] = UDim2.new(-0.00757, 0, 0.43765, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["27"] = Instance.new("UICorner", G2L["26"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["28"] = Instance.new("LocalScript", G2L["26"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["29"] = Instance.new("UIAspectRatioConstraint", G2L["26"]);
+G2L["29"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["2a"] = Instance.new("UITextSizeConstraint", G2L["26"]);
+G2L["2a"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["2b"] = Instance.new("TextButton", G2L["7"]);
+G2L["2b"]["TextWrapped"] = true;
+G2L["2b"]["BorderSizePixel"] = 0;
+G2L["2b"]["TextSize"] = 14;
+G2L["2b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2b"]["TextScaled"] = true;
+G2L["2b"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["2b"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["2b"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["2b"]["Name"] = [[button]];
+G2L["2b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2b"]["Text"] = [[TERRY]];
+G2L["2b"]["Position"] = UDim2.new(-0.00757, 0, 0.50522, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["2c"] = Instance.new("UICorner", G2L["2b"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["2d"] = Instance.new("LocalScript", G2L["2b"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["2e"] = Instance.new("UIAspectRatioConstraint", G2L["2b"]);
+G2L["2e"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["2f"] = Instance.new("UITextSizeConstraint", G2L["2b"]);
+G2L["2f"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["30"] = Instance.new("TextButton", G2L["7"]);
+G2L["30"]["TextWrapped"] = true;
+G2L["30"]["BorderSizePixel"] = 0;
+G2L["30"]["TextSize"] = 14;
+G2L["30"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["30"]["TextScaled"] = true;
+G2L["30"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["30"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["30"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["30"]["Name"] = [[button]];
+G2L["30"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["30"]["Text"] = [[IMAGINARY]];
+G2L["30"]["Position"] = UDim2.new(-0.00757, 0, 0.56704, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["31"] = Instance.new("UICorner", G2L["30"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["32"] = Instance.new("LocalScript", G2L["30"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["33"] = Instance.new("UIAspectRatioConstraint", G2L["30"]);
+G2L["33"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["34"] = Instance.new("UITextSizeConstraint", G2L["30"]);
+G2L["34"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["35"] = Instance.new("TextButton", G2L["7"]);
+G2L["35"]["TextWrapped"] = true;
+G2L["35"]["BorderSizePixel"] = 0;
+G2L["35"]["TextSize"] = 14;
+G2L["35"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["35"]["TextScaled"] = true;
+G2L["35"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["35"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["35"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["35"]["Name"] = [[button]];
+G2L["35"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["35"]["Text"] = [[Domain Expansion]];
+G2L["35"]["Position"] = UDim2.new(-0.00757, 0, 0.62993, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["36"] = Instance.new("UICorner", G2L["35"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["37"] = Instance.new("LocalScript", G2L["35"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["38"] = Instance.new("UIAspectRatioConstraint", G2L["35"]);
+G2L["38"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["39"] = Instance.new("UITextSizeConstraint", G2L["35"]);
+G2L["39"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["3a"] = Instance.new("TextButton", G2L["7"]);
+G2L["3a"]["TextWrapped"] = true;
+G2L["3a"]["BorderSizePixel"] = 0;
+G2L["3a"]["TextSize"] = 14;
+G2L["3a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3a"]["TextScaled"] = true;
+G2L["3a"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["3a"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["3a"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["3a"]["Name"] = [[button]];
+G2L["3a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3a"]["Text"] = [[OVERHUGE]];
+G2L["3a"]["Position"] = UDim2.new(-0.00757, 0, 0.69773, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["3b"] = Instance.new("UICorner", G2L["3a"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["3c"] = Instance.new("LocalScript", G2L["3a"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["3d"] = Instance.new("UIAspectRatioConstraint", G2L["3a"]);
+G2L["3d"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["3e"] = Instance.new("UITextSizeConstraint", G2L["3a"]);
+G2L["3e"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["3f"] = Instance.new("TextButton", G2L["7"]);
+G2L["3f"]["TextWrapped"] = true;
+G2L["3f"]["BorderSizePixel"] = 0;
+G2L["3f"]["TextSize"] = 14;
+G2L["3f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3f"]["TextScaled"] = true;
+G2L["3f"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["3f"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["3f"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["3f"]["Name"] = [[button]];
+G2L["3f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3f"]["Text"] = [[OVERSNOW]];
+G2L["3f"]["Position"] = UDim2.new(-0.00757, 0, 0.76011, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["40"] = Instance.new("UICorner", G2L["3f"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["41"] = Instance.new("LocalScript", G2L["3f"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["42"] = Instance.new("UIAspectRatioConstraint", G2L["3f"]);
+G2L["42"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["43"] = Instance.new("UITextSizeConstraint", G2L["3f"]);
+G2L["43"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["44"] = Instance.new("TextButton", G2L["7"]);
+G2L["44"]["TextWrapped"] = true;
+G2L["44"]["BorderSizePixel"] = 0;
+G2L["44"]["TextSize"] = 14;
+G2L["44"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["44"]["TextScaled"] = true;
+G2L["44"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["44"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["44"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["44"]["Name"] = [[button]];
+G2L["44"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["44"]["Text"] = [[minecraft]];
+G2L["44"]["Position"] = UDim2.new(-0.00149, 0, 0.8316, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["45"] = Instance.new("UICorner", G2L["44"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["46"] = Instance.new("LocalScript", G2L["44"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["47"] = Instance.new("UIAspectRatioConstraint", G2L["44"]);
+G2L["47"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["48"] = Instance.new("UITextSizeConstraint", G2L["44"]);
+G2L["48"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["49"] = Instance.new("TextButton", G2L["7"]);
+G2L["49"]["TextWrapped"] = true;
+G2L["49"]["BorderSizePixel"] = 0;
+G2L["49"]["TextSize"] = 14;
+G2L["49"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["49"]["TextScaled"] = true;
+G2L["49"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["49"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["49"]["Size"] = UDim2.new(0.98784, 0, 0.05165, 0);
+G2L["49"]["Name"] = [[button]];
+G2L["49"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["49"]["Text"] = [[Bobm()]];
+G2L["49"]["Position"] = UDim2.new(-0.00149, 0, 0.89778, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["4a"] = Instance.new("UICorner", G2L["49"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["4b"] = Instance.new("LocalScript", G2L["49"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["4c"] = Instance.new("UIAspectRatioConstraint", G2L["49"]);
+G2L["4c"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["4d"] = Instance.new("UITextSizeConstraint", G2L["49"]);
+G2L["4d"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button
+G2L["4e"] = Instance.new("TextButton", G2L["7"]);
+G2L["4e"]["TextWrapped"] = true;
+G2L["4e"]["BorderSizePixel"] = 0;
+G2L["4e"]["TextSize"] = 14;
+G2L["4e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4e"]["TextScaled"] = true;
+G2L["4e"]["BackgroundColor3"] = Color3.fromRGB(56, 56, 56);
+G2L["4e"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["4e"]["Size"] = UDim2.new(0.98784, 0, 0.02948, 0);
+G2L["4e"]["Name"] = [[button]];
+G2L["4e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4e"]["Text"] = [[train]];
+G2L["4e"]["Position"] = UDim2.new(0.20101, 0, 0.9563, 0);
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UICorner
+G2L["4f"] = Instance.new("UICorner", G2L["4e"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+G2L["50"] = Instance.new("LocalScript", G2L["4e"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UIAspectRatioConstraint
+G2L["51"] = Instance.new("UIAspectRatioConstraint", G2L["4e"]);
+G2L["51"]["AspectRatio"] = 6.5;
+
+
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.UITextSizeConstraint
+G2L["52"] = Instance.new("UITextSizeConstraint", G2L["4e"]);
+G2L["52"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.AdminGloves.Frame.UICorner
+G2L["53"] = Instance.new("UICorner", G2L["2"]);
+
+
+
+-- StarterGui.AdminGloves.Frame.UIAspectRatioConstraint
+G2L["54"] = Instance.new("UIAspectRatioConstraint", G2L["2"]);
+G2L["54"]["AspectRatio"] = 0.7314;
+
+
+-- StarterGui.AdminGloves.TextButton
+G2L["55"] = Instance.new("TextButton", G2L["1"]);
+G2L["55"]["TextWrapped"] = true;
+G2L["55"]["BorderSizePixel"] = 0;
+G2L["55"]["TextSize"] = 14;
+G2L["55"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["55"]["TextScaled"] = true;
+G2L["55"]["BackgroundColor3"] = Color3.fromRGB(76, 76, 76);
+G2L["55"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["55"]["Size"] = UDim2.new(0.18362, 0, 0.13301, 0);
+G2L["55"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["55"]["Text"] = [[Admin glove UI]];
+G2L["55"]["Position"] = UDim2.new(0.78223, 0, 0.40525, 0);
+
+
+-- StarterGui.AdminGloves.TextButton.UIStroke
+G2L["56"] = Instance.new("UIStroke", G2L["55"]);
+G2L["56"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["56"]["Thickness"] = 5;
+
+
+-- StarterGui.AdminGloves.TextButton.LocalScript
+G2L["57"] = Instance.new("LocalScript", G2L["55"]);
+
+
+
+-- StarterGui.AdminGloves.TextButton.UIAspectRatioConstraint
+G2L["58"] = Instance.new("UIAspectRatioConstraint", G2L["55"]);
+G2L["58"]["AspectRatio"] = 2.783;
+
+
+-- StarterGui.AdminGloves.TextButton.UITextSizeConstraint
+G2L["59"] = Instance.new("UITextSizeConstraint", G2L["55"]);
+G2L["59"]["MaxTextSize"] = 52;
+
+
+-- StarterGui.AdminGloves.Frame.LocalScript
+local function C_6()
+local script = G2L["6"];
+	local frame = script.Parent
+	
+	local UserInputService = game:GetService("UserInputService")
+	local dragging = false
+	local dragStart = nil
+	local startPos = nil
+	
+	-- Function to start dragging
+	local function startDrag(input)
+		if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = true
+			dragStart = input.Position
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end
+	
+	-- Function to update the position of the frame while dragging
+	local function updateDrag(input)
+		if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement) then
+			local delta = (input.Position - dragStart)
+			frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		end
+	end
+	
+	-- Connect touch and mouse events
+	frame.InputBegan:Connect(startDrag)
+	UserInputService.InputChanged:Connect(updateDrag)
+	
+end;
+task.spawn(C_6);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_a()
+local script = G2L["a"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.CloneChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_a);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_f()
+local script = G2L["f"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.BOBBLEChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_f);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_14()
+local script = G2L["14"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.TABLEChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_14);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_19()
+local script = G2L["19"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.susChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_19);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_1e()
+local script = G2L["1e"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.pimChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_1e);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_23()
+local script = G2L["23"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.edgelordChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_23);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_28()
+local script = G2L["28"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.barzilChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_28);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_2d()
+local script = G2L["2d"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.TERRYChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_2d);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_32()
+local script = G2L["32"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.IMAGINARYChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_32);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_37()
+local script = G2L["37"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.DomainExpansionChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_37);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_3c()
+local script = G2L["3c"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.OVERHUGEChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_3c);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_41()
+local script = G2L["41"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.OVERSNOWChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_41);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_46()
+local script = G2L["46"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.minecraftChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_46);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_4b()
+local script = G2L["4b"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.BobmChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_4b);
+-- StarterGui.AdminGloves.Frame.ScrollingFrame.button.LocalScript
+local function C_50()
+local script = G2L["50"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		local args = {
+			[1] = game.Players.LocalPlayer
+		}
+		game:GetService("ReplicatedStorage").AdminGloveChangeHandler.trainChangeGloveEvent:FireServer(unpack(args))
+	end)
+end;
+task.spawn(C_50);
+-- StarterGui.AdminGloves.TextButton.LocalScript
+local function C_57()
+local script = G2L["57"];
+	local button = script.Parent
+	local frame = button.Parent.Frame
+	
+	button.Activated:Connect(function()
+		frame.Visible = not frame.Visible
+	end)
+	
+end;
+task.spawn(C_57);
+
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 17 | Scripts: 4 | Modules: 0 | Tags: 0
+local G2L = {};
+
+-- StarterGui.KSButton
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["Name"] = [[KSButton]];
+G2L["1"]["ResetOnSpawn"] = false;
+
+
+-- StarterGui.KSButton.ImageButton
+G2L["2"] = Instance.new("ImageButton", G2L["1"]);
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2"]["Image"] = [[http://www.roblox.com/asset/?id=16564812826]];
+G2L["2"]["Size"] = UDim2.new(0.09529, 0, 0.10417, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Position"] = UDim2.new(0.82626, 0, 0.60417, 0);
+
+
+-- StarterGui.KSButton.ImageButton.UIStroke
+G2L["3"] = Instance.new("UIStroke", G2L["2"]);
+G2L["3"]["Thickness"] = 4;
+
+
+-- StarterGui.KSButton.ImageButton.LocalScript
+G2L["4"] = Instance.new("LocalScript", G2L["2"]);
+
+
+
+-- StarterGui.KSButton.Frame
+G2L["5"] = Instance.new("Frame", G2L["1"]);
+G2L["5"]["Visible"] = false;
+G2L["5"]["BorderSizePixel"] = 0;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(80, 0, 0);
+G2L["5"]["Size"] = UDim2.new(0.21571, 0, 0.40385, 0);
+G2L["5"]["Position"] = UDim2.new(0.41693, 0, 0.51442, 0);
+G2L["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.KSButton.Frame.UIStroke
+G2L["6"] = Instance.new("UIStroke", G2L["5"]);
+G2L["6"]["Thickness"] = 4;
+
+
+-- StarterGui.KSButton.Frame.TextButton
+G2L["7"] = Instance.new("TextButton", G2L["5"]);
+G2L["7"]["TextWrapped"] = true;
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["TextSize"] = 14;
+G2L["7"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7"]["TextScaled"] = true;
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(54, 0, 0);
+G2L["7"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["7"]["Size"] = UDim2.new(0.68447, 0, 0.19841, 0);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["Text"] = [[Give yourself +1 kill]];
+G2L["7"]["Position"] = UDim2.new(0.15534, 0, 0.17063, 0);
+
+
+-- StarterGui.KSButton.Frame.TextButton.UICorner
+G2L["8"] = Instance.new("UICorner", G2L["7"]);
+
+
+
+-- StarterGui.KSButton.Frame.TextButton.LocalScript
+G2L["9"] = Instance.new("LocalScript", G2L["7"]);
+
+
+
+-- StarterGui.KSButton.Frame.TextButton.UITextSizeConstraint
+G2L["a"] = Instance.new("UITextSizeConstraint", G2L["7"]);
+G2L["a"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.KSButton.Frame.TextButton
+G2L["b"] = Instance.new("TextButton", G2L["5"]);
+G2L["b"]["TextWrapped"] = true;
+G2L["b"]["BorderSizePixel"] = 0;
+G2L["b"]["TextSize"] = 14;
+G2L["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b"]["TextScaled"] = true;
+G2L["b"]["BackgroundColor3"] = Color3.fromRGB(54, 0, 0);
+G2L["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["b"]["Size"] = UDim2.new(0.68447, 0, 0.38889, 0);
+G2L["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b"]["Text"] = [[Give a person +1 kill]];
+G2L["b"]["Position"] = UDim2.new(0.15534, 0, 0.40476, 0);
+
+
+-- StarterGui.KSButton.Frame.TextButton.UICorner
+G2L["c"] = Instance.new("UICorner", G2L["b"]);
+
+
+
+-- StarterGui.KSButton.Frame.TextButton.LocalScript
+G2L["d"] = Instance.new("LocalScript", G2L["b"]);
+
+
+
+-- StarterGui.KSButton.Frame.TextButton.UITextSizeConstraint
+G2L["e"] = Instance.new("UITextSizeConstraint", G2L["b"]);
+G2L["e"]["MaxTextSize"] = 72;
+
+
+-- StarterGui.KSButton.Frame.TextBox
+G2L["f"] = Instance.new("TextBox", G2L["5"]);
+G2L["f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["f"]["BorderSizePixel"] = 0;
+G2L["f"]["TextWrapped"] = true;
+G2L["f"]["TextSize"] = 14;
+G2L["f"]["TextScaled"] = true;
+G2L["f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["f"]["FontFace"] = Font.new([[rbxasset://fonts/families/TitilliumWeb.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["f"]["Size"] = UDim2.new(0.79126, 0, 0.11905, 0);
+G2L["f"]["Position"] = UDim2.new(0.10194, 0, 0.82143, 0);
+G2L["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["f"]["Text"] = [[Type here]];
+
+
+-- StarterGui.KSButton.Frame.TextBox.UITextSizeConstraint
+G2L["10"] = Instance.new("UITextSizeConstraint", G2L["f"]);
+G2L["10"]["MaxTextSize"] = 30;
+
+
+-- StarterGui.KSButton.Frame.LocalScript
+G2L["11"] = Instance.new("LocalScript", G2L["5"]);
+
+
+
+-- StarterGui.KSButton.ImageButton.LocalScript
+local function C_4()
+local script = G2L["4"];
+	local b = script.Parent
+	local f = script.Parent.Parent.Frame
+	b.Activated:Connect(function()
+		f.Visible = not f.Visible
+	end)
+end;
+task.spawn(C_4);
+-- StarterGui.KSButton.Frame.TextButton.LocalScript
+local function C_9()
+local script = G2L["9"];
+	local b = script.Parent
+	local give = game.ReplicatedStorage.givekill
+	b.Activated:Connect(function()
+		give:FireServer(game.Players.LocalPlayer.Character)
+	end)
+end;
+task.spawn(C_9);
+-- StarterGui.KSButton.Frame.TextButton.LocalScript
+local function C_d()
+local script = G2L["d"];
+	local button = script.Parent
+	local textBox = script.Parent.Parent.TextBox
+	local giveKillEvent = game.ReplicatedStorage:WaitForChild("givekill")
+	
+	button.Activated:Connect(function()
+		local playerName = textBox.Text
+		local player = game.Players:FindFirstChild(playerName)
+	
+		if player then
+			giveKillEvent:FireServer(player.Character)
+		else
+			warn("Player not found: " .. playerName)
+		end
+	end)
+	
+end;
+task.spawn(C_d);
+-- StarterGui.KSButton.Frame.LocalScript
+local function C_11()
+local script = G2L["11"];
+	local frame = script.Parent
+	
+	local UserInputService = game:GetService("UserInputService")
+	local dragging = false
+	local dragStart = nil
+	local startPos = nil
+	
+	-- Function to start dragging
+	local function startDrag(input)
+		if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = true
+			dragStart = input.Position
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end
+	
+	-- Function to update the position of the frame while dragging
+	local function updateDrag(input)
+		if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement) then
+			local delta = (input.Position - dragStart)
+			frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		end
+	end
+	
+	-- Connect touch and mouse events
+	frame.InputBegan:Connect(startDrag)
+	UserInputService.InputChanged:Connect(updateDrag)
+	
+end;
+task.spawn(C_11);
+
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 40 | Scripts: 8 | Modules: 0 | Tags: 0
+local G2L = {};
+
+-- StarterGui.WeaponsButton
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["IgnoreGuiInset"] = true;
+G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+G2L["1"]["Name"] = [[WeaponsButton]];
+G2L["1"]["ResetOnSpawn"] = false;
+
+
+-- StarterGui.WeaponsButton.ImageButton
+G2L["2"] = Instance.new("ImageButton", G2L["1"]);
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2"]["Image"] = [[http://www.roblox.com/asset/?id=119093083471048]];
+G2L["2"]["Size"] = UDim2.new(0.09529, 0, 0.10417, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Position"] = UDim2.new(0.82546, 0, 0.20673, 0);
+
+
+-- StarterGui.WeaponsButton.ImageButton.UIStroke
+G2L["3"] = Instance.new("UIStroke", G2L["2"]);
+G2L["3"]["Thickness"] = 4;
+
+
+-- StarterGui.WeaponsButton.ImageButton.LocalScript
+G2L["4"] = Instance.new("LocalScript", G2L["2"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame
+G2L["5"] = Instance.new("Frame", G2L["1"]);
+G2L["5"]["Visible"] = false;
+G2L["5"]["BorderSizePixel"] = 0;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 139);
+G2L["5"]["Size"] = UDim2.new(0.21571, 0, 0.40385, 0);
+G2L["5"]["Position"] = UDim2.new(0.41786, 0, 0.07451, 0);
+G2L["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.WeaponsButton.Frame.UIStroke
+G2L["6"] = Instance.new("UIStroke", G2L["5"]);
+G2L["6"]["Thickness"] = 4;
+
+
+-- StarterGui.WeaponsButton.Frame.LocalScript
+G2L["7"] = Instance.new("LocalScript", G2L["5"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.TextLabel
+G2L["8"] = Instance.new("TextLabel", G2L["5"]);
+G2L["8"]["TextWrapped"] = true;
+G2L["8"]["BorderSizePixel"] = 0;
+G2L["8"]["TextScaled"] = true;
+G2L["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["8"]["TextSize"] = 14;
+G2L["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["8"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8"]["BackgroundTransparency"] = 1;
+G2L["8"]["Size"] = UDim2.new(1, 0, 0.21032, 0);
+G2L["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8"]["Text"] = [[made by: wimpwimpwashere1337]];
+
+
+-- StarterGui.WeaponsButton.Frame.TextLabel.UITextSizeConstraint
+G2L["9"] = Instance.new("UITextSizeConstraint", G2L["8"]);
+G2L["9"]["MaxTextSize"] = 48;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame
+G2L["a"] = Instance.new("ScrollingFrame", G2L["5"]);
+G2L["a"]["Active"] = true;
+G2L["a"]["BorderSizePixel"] = 0;
+G2L["a"]["BackgroundColor3"] = Color3.fromRGB(177, 181, 93);
+G2L["a"]["Size"] = UDim2.new(0.91262, 0, 0.73016, 0);
+G2L["a"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["Position"] = UDim2.new(0.04369, 0, 0.23016, 0);
+G2L["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton
+G2L["b"] = Instance.new("TextButton", G2L["a"]);
+G2L["b"]["TextWrapped"] = true;
+G2L["b"]["BorderSizePixel"] = 0;
+G2L["b"]["TextSize"] = 14;
+G2L["b"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b"]["TextScaled"] = true;
+G2L["b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["b"]["Size"] = UDim2.new(0.65819, 0, 0.09921, 0);
+G2L["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b"]["Text"] = [[DOOM SLAYER]];
+G2L["b"]["Position"] = UDim2.new(0.06383, 0, -0.00307, 0);
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UICorner
+G2L["c"] = Instance.new("UICorner", G2L["b"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+G2L["d"] = Instance.new("LocalScript", G2L["b"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UIAspectRatioConstraint
+G2L["e"] = Instance.new("UIAspectRatioConstraint", G2L["b"]);
+G2L["e"]["AspectRatio"] = 3.26;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UITextSizeConstraint
+G2L["f"] = Instance.new("UITextSizeConstraint", G2L["b"]);
+G2L["f"]["MaxTextSize"] = 33;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton
+G2L["10"] = Instance.new("TextButton", G2L["a"]);
+G2L["10"]["TextWrapped"] = true;
+G2L["10"]["BorderSizePixel"] = 0;
+G2L["10"]["TextSize"] = 14;
+G2L["10"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["10"]["TextScaled"] = true;
+G2L["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["10"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["10"]["Size"] = UDim2.new(0.65819, 0, 0.09921, 0);
+G2L["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["10"]["Text"] = [[JPEG]];
+G2L["10"]["Position"] = UDim2.new(0.06383, 0, 0.11039, 0);
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UICorner
+G2L["11"] = Instance.new("UICorner", G2L["10"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+G2L["12"] = Instance.new("LocalScript", G2L["10"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UIAspectRatioConstraint
+G2L["13"] = Instance.new("UIAspectRatioConstraint", G2L["10"]);
+G2L["13"]["AspectRatio"] = 3.26;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UITextSizeConstraint
+G2L["14"] = Instance.new("UITextSizeConstraint", G2L["10"]);
+G2L["14"]["MaxTextSize"] = 50;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton
+G2L["15"] = Instance.new("TextButton", G2L["a"]);
+G2L["15"]["TextWrapped"] = true;
+G2L["15"]["BorderSizePixel"] = 0;
+G2L["15"]["TextSize"] = 14;
+G2L["15"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["15"]["TextScaled"] = true;
+G2L["15"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["15"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["15"]["Size"] = UDim2.new(0.65819, 0, 0.09921, 0);
+G2L["15"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["15"]["Text"] = [[WAR HAMMER]];
+G2L["15"]["Position"] = UDim2.new(0.06383, 0, 0.23205, 0);
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UICorner
+G2L["16"] = Instance.new("UICorner", G2L["15"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+G2L["17"] = Instance.new("LocalScript", G2L["15"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UIAspectRatioConstraint
+G2L["18"] = Instance.new("UIAspectRatioConstraint", G2L["15"]);
+G2L["18"]["AspectRatio"] = 3.26;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UITextSizeConstraint
+G2L["19"] = Instance.new("UITextSizeConstraint", G2L["15"]);
+G2L["19"]["MaxTextSize"] = 34;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton
+G2L["1a"] = Instance.new("TextButton", G2L["a"]);
+G2L["1a"]["TextWrapped"] = true;
+G2L["1a"]["BorderSizePixel"] = 0;
+G2L["1a"]["TextSize"] = 14;
+G2L["1a"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1a"]["TextScaled"] = true;
+G2L["1a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1a"]["Size"] = UDim2.new(0.65819, 0, 0.09921, 0);
+G2L["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1a"]["Text"] = [[BAN HAMMER]];
+G2L["1a"]["Position"] = UDim2.new(0.064, 0, 0.343, 0);
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UICorner
+G2L["1b"] = Instance.new("UICorner", G2L["1a"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+G2L["1c"] = Instance.new("LocalScript", G2L["1a"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UIAspectRatioConstraint
+G2L["1d"] = Instance.new("UIAspectRatioConstraint", G2L["1a"]);
+G2L["1d"]["AspectRatio"] = 3.26;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UITextSizeConstraint
+G2L["1e"] = Instance.new("UITextSizeConstraint", G2L["1a"]);
+G2L["1e"]["MaxTextSize"] = 34;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton
+G2L["1f"] = Instance.new("TextButton", G2L["a"]);
+G2L["1f"]["TextWrapped"] = true;
+G2L["1f"]["BorderSizePixel"] = 0;
+G2L["1f"]["TextSize"] = 14;
+G2L["1f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1f"]["TextScaled"] = true;
+G2L["1f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1f"]["Size"] = UDim2.new(0.65819, 0, 0.09921, 0);
+G2L["1f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1f"]["Text"] = [[INSTASTREAK]];
+G2L["1f"]["Position"] = UDim2.new(0.064, 0, 0.456, 0);
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UICorner
+G2L["20"] = Instance.new("UICorner", G2L["1f"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+G2L["21"] = Instance.new("LocalScript", G2L["1f"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UIAspectRatioConstraint
+G2L["22"] = Instance.new("UIAspectRatioConstraint", G2L["1f"]);
+G2L["22"]["AspectRatio"] = 3.26;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UITextSizeConstraint
+G2L["23"] = Instance.new("UITextSizeConstraint", G2L["1f"]);
+G2L["23"]["MaxTextSize"] = 34;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton
+G2L["24"] = Instance.new("TextButton", G2L["a"]);
+G2L["24"]["TextWrapped"] = true;
+G2L["24"]["BorderSizePixel"] = 0;
+G2L["24"]["TextSize"] = 14;
+G2L["24"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["24"]["TextScaled"] = true;
+G2L["24"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["24"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["24"]["Size"] = UDim2.new(0.65819, 0, 0.09921, 0);
+G2L["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["24"]["Text"] = [[GOLDEN PAN]];
+G2L["24"]["Position"] = UDim2.new(0.064, 0, 0.577, 0);
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UICorner
+G2L["25"] = Instance.new("UICorner", G2L["24"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+G2L["26"] = Instance.new("LocalScript", G2L["24"]);
+
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UIAspectRatioConstraint
+G2L["27"] = Instance.new("UIAspectRatioConstraint", G2L["24"]);
+G2L["27"]["AspectRatio"] = 3.26;
+
+
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.UITextSizeConstraint
+G2L["28"] = Instance.new("UITextSizeConstraint", G2L["24"]);
+G2L["28"]["MaxTextSize"] = 37;
+
+
+-- StarterGui.WeaponsButton.ImageButton.LocalScript
+local function C_4()
+local script = G2L["4"];
+	local b = script.Parent
+	local f = script.Parent.Parent.Frame
+	
+	-- Toggle visibility of frame when button is clicked
+	b.Activated:Connect(function()
+		f.Visible = not f.Visible
+	end)
+	
+	-- Change button image every 0.5 seconds in a loop
+	while true do
+		wait(0.5)
+		b.Image = "http://www.roblox.com/asset/?id=119093083471048"
+		wait(0.5)
+		b.Image = "http://www.roblox.com/asset/?id=114782699181937"
+		wait(0.5)
+		b.Image = "http://www.roblox.com/asset/?id=108899338921202"
+		wait(0.5)
+		b.Image = "http://www.roblox.com/asset/?id=113407494251180"
+		wait(0.5)
+		b.Image = "http://www.roblox.com/asset/?id=84902213166613" -- Check the ID of this image
+	end
+	
+end;
+task.spawn(C_4);
+-- StarterGui.WeaponsButton.Frame.LocalScript
+local function C_7()
+local script = G2L["7"];
+	local frame = script.Parent
+	
+	local UserInputService = game:GetService("UserInputService")
+	local dragging = false
+	local dragStart = nil
+	local startPos = nil
+	
+	-- Function to start dragging
+	local function startDrag(input)
+		if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = true
+			dragStart = input.Position
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end
+	
+	-- Function to update the position of the frame while dragging
+	local function updateDrag(input)
+		if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement) then
+			local delta = (input.Position - dragStart)
+			frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		end
+	end
+	
+	-- Connect touch and mouse events
+	frame.InputBegan:Connect(startDrag)
+	UserInputService.InputChanged:Connect(updateDrag)
+	
+end;
+task.spawn(C_7);
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+local function C_d()
+local script = G2L["d"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		game:GetService("ReplicatedStorage").ToolEvents.DoomSlayerEvent:FireServer()
+	end)
+end;
+task.spawn(C_d);
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+local function C_12()
+local script = G2L["12"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		game:GetService("ReplicatedStorage").ToolEvents.jpegevent:FireServer()
+	end)
+end;
+task.spawn(C_12);
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+local function C_17()
+local script = G2L["17"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		game:GetService("ReplicatedStorage").ToolEvents.WarHammerEvent:FireServer()
+	end)
+end;
+task.spawn(C_17);
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+local function C_1c()
+local script = G2L["1c"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		game:GetService("ReplicatedStorage").ToolEvents.BanHammerEvent:FireServer()
+	end)
+end;
+task.spawn(C_1c);
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+local function C_21()
+local script = G2L["21"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		game:GetService("ReplicatedStorage").ToolEvents.InstaStreakEvent:FireServer()
+	end)
+end;
+task.spawn(C_21);
+-- StarterGui.WeaponsButton.Frame.ScrollingFrame.TextButton.LocalScript
+local function C_26()
+local script = G2L["26"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		game:GetService("ReplicatedStorage").ToolEvents.GoldenFryingPanEvent:FireServer()
+	end)
+end;
+task.spawn(C_26);
+
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 6 | Scripts: 1 | Modules: 0 | Tags: 0
+local G2L = {};
+
+-- StarterGui.EmoteGUI
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["IgnoreGuiInset"] = true;
+G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+G2L["1"]["Name"] = [[EmoteGUI]];
+G2L["1"]["ResetOnSpawn"] = false;
+
+
+-- StarterGui.EmoteGUI.TextButton
+G2L["2"] = Instance.new("TextButton", G2L["1"]);
+G2L["2"]["TextWrapped"] = true;
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["TextSize"] = 14;
+G2L["2"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["TextScaled"] = true;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(76, 76, 76);
+G2L["2"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["2"]["Size"] = UDim2.new(0.10696, 0, 0.16506, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Text"] = [[🕺]];
+G2L["2"]["Position"] = UDim2.new(0.027, 0, 0.80128, 0);
+
+
+-- StarterGui.EmoteGUI.TextButton.UICorner
+G2L["3"] = Instance.new("UICorner", G2L["2"]);
+
+
+
+-- StarterGui.EmoteGUI.TextButton.UIStroke
+G2L["4"] = Instance.new("UIStroke", G2L["2"]);
+G2L["4"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["4"]["Thickness"] = 4;
+
+
+-- StarterGui.EmoteGUI.TextButton.LocalScript
+G2L["5"] = Instance.new("LocalScript", G2L["2"]);
+
+
+
+-- StarterGui.EmoteGUI.TextButton.UITextSizeConstraint
+G2L["6"] = Instance.new("UITextSizeConstraint", G2L["2"]);
+
+
+
+-- StarterGui.EmoteGUI.TextButton.LocalScript
+local function C_5()
+local script = G2L["5"];
+	local b = script.Parent
+	b.Activated:Connect(function()
+		game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Emotions.Visible = true
+	end)
+end;
+task.spawn(C_5);
+game.Players.LocalPlayer.PlayerGui.TestingGUI.Enabled = true
+return G2L["1"], require;
